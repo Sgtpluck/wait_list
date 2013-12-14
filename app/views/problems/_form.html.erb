@@ -1,0 +1,23 @@
+debug <%= params.inspect %>
+
+<% @problem.errors.full_messages.each do |error| %>
+  <%= error %><br>
+<% end %>
+
+<%= form_for(@problem) do |f|%>
+  <br>
+  What's your name?<br>
+  <%= f.select(:adie_id, 
+         Adie.find(:all).collect {|p| [ p.name, p.id ] }) %><br>
+
+What type of problem are you having?<br>
+
+ <%= f.select(:type, ['Rails','Ruby','CSS/HTML','Other']) %> <br><br>
+
+   <%= f.label :description %>
+  <%= f.text_field :description %><br>
+
+Estimated Time To Solve The Problem: (BE HONEST.)<br>
+ <%= f.select(:estimate, ['5 minutes','20 minutes','45 minutes','possibly hours','Not Sure','someone have mercy on my soul']) %> <br><br>
+ <%= f.submit 'Click to get in the queue' %>
+  <% end %>

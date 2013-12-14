@@ -1,0 +1,21 @@
+I'm sorry you're having a problem! 
+
+<%= link_to 'Create New Problem', new_problem_path %> <br>
+<table>
+  <thead>
+    <tr>
+      <th>Adie, holla! </th>
+      <th>Type of problem</th>
+      <th>Time Estimate</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody> 
+<% @problems.each do |problem| %>
+  <td><%= Adie.find(problem.adie_id).name %></td>
+  <td><%= problem.type %></td>
+  <td><%= problem.estimate %></td>
+  <td><%= problem.description %></td>
+</tbody>
+</table>
+  <% end %>
