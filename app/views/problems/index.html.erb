@@ -1,21 +1,23 @@
 I'm sorry you're having a problem! 
 
 <%= link_to 'Create New Problem', new_problem_path %> <br>
+
+
 <table>
   <thead>
     <tr>
       <th>Adie, holla! </th>
       <th>Type of problem</th>
       <th>Time Estimate</th>
-      <th>Description</th>
+      <th>Category</th>
     </tr>
   </thead>
-  <tbody> 
+  <tbody>
 <% @problems.each do |problem| %>
   <td><%= Adie.find(problem.adie_id).name %></td>
   <td><%= problem.type %></td>
-  <td><%= problem.estimate %></td>
   <td><%= problem.description %></td>
+  <td><%= problem.estimate %></td>
 </tbody>
 </table>
   <% end %>

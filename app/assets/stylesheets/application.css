@@ -11,11 +11,3 @@
  *= require_self
  *= require_tree .
  */
-.header {
-
-}
-
-.container {
-  width: 500px;
-  margin: 50px auto;
-}
