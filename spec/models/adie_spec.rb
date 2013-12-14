@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Adie do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+
+    it 'should have a name' do
+    end
+  end
 end
