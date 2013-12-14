@@ -18,6 +18,10 @@ class ProblemsController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
 
 
 private

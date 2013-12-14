@@ -1,6 +1,8 @@
-I'm sorry you're having a problem! 
+<h3>I'm sorry you're having a problem!</h3>
 
 <%= link_to 'Create New Problem', new_problem_path %> <br>
+
+<h2>Current Help Line </h2>
 <table>
   <thead>
     <tr>
@@ -8,14 +10,17 @@ I'm sorry you're having a problem!
       <th>Type of problem</th>
       <th>Time Estimate</th>
       <th>Description</th>
+      <th></th>
     </tr>
   </thead>
   <tbody> 
-<% @problems.each do |problem| %>
-  <td><%= Adie.find(problem.adie_id).name %></td>
-  <td><%= problem.type %></td>
-  <td><%= problem.estimate %></td>
-  <td><%= problem.description %></td>
-</tbody>
-</table>
+  <% @problems.each do |problem| %>
+    <td><%= Adie.find(problem.adie_id).name %></td>
+    <td><%= problem.type %></td>
+    <td><%= problem.estimate %></td>
+    <td><%= problem.description %></td>
+    <td><%= link_to "I've been helped!", problem, method: :helped %></td>
+  </tbody>
   <% end %>
+</table>
+  
