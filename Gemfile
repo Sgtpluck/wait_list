@@ -36,8 +36,12 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
+  gem 'sqlite3'
 end
 
+group :production do
+  gem 'pg'
+end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 
