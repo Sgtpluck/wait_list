@@ -1,9 +1,8 @@
-debug <%= params.inspect %>
+
 
 <% @problem.errors.full_messages.each do |error| %>
   <%= error %><br>
 <% end %>
-
 <%= form_for(@problem) do |f|%>
   <br>
   What's your name?<br>
@@ -19,5 +18,6 @@ What type of problem are you having?<br>
 
 Estimated Time To Solve The Problem: (BE HONEST.)<br>
  <%= f.select(:estimate, ['5 minutes','20 minutes','45 minutes','possibly hours','Not Sure','someone have mercy on my soul']) %> <br><br>
+
  <%= f.submit 'Click to get in the queue' %>
   <% end %>

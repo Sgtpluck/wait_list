@@ -2,14 +2,14 @@
 <html>
 <head>
   <title>HelpLine</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div class='header'>
   <h1>  Need Help?</h1>
   </div>
-
+debug <%= params.inspect %>
 <div class='container'>
 <%= yield %>
 </div>

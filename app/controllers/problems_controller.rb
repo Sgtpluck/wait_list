@@ -2,7 +2,7 @@ class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
   
   def index
-    @problems = Problem.all
+    @problems = Problem.where(helped: false)
   end
 
   def new
@@ -18,8 +18,13 @@ class ProblemsController < ApplicationController
     end
   end
 
+
   def show
     
+  end
+
+  def update
+    @problem
   end
 
 
@@ -27,11 +32,11 @@ class ProblemsController < ApplicationController
 private
 
 def set_problem
-  problem=Problem.find(params[:id])
+  @problem=Problem.find(params[:id])
 end
 
 def problem_params
-  params.require(:problem).permit(:adie_id,:type,:description,:estimate)
+  params.require(:problem).permit(:adie_id,:type,:description,:estimate,:helped)
 end
 
 end
