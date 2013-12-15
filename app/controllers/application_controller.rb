@@ -4,12 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  def adies
-    @adies = Adie.all.map do |adie|
-      [adie.name, adie.id]
-    end
-  end
+  # def adies
+  #   @adies = Adie.all.map do |adie|
+  #     [adie.name, adie.id]
+  #   end
+  # end
 
-  helper_method :adies
+  # helper_method :adies
 
 end
