@@ -5,7 +5,13 @@
   <div class ="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <% end %>
   </div>
 
+  <%= f.label "Upload local file:" %><br />
+  <%= f.file_field :adatar %>
+  <%= f.hidden_field :adatar_cache %>
+
+  <%= f.submit "Submit" %>
+
+<% end %>
 </div>

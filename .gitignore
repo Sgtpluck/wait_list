@@ -16,3 +16,4 @@
 /tmp
 
 /config/fog.rb
+/config/initializers/carrierwave.rb

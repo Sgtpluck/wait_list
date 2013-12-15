@@ -3,9 +3,11 @@ HelpLine::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :problems
   
-  post "/problems/:id"  => "problems#update", as: :helped
-  get '/analysis'       => 'problems#analysis'
-  
+  post '/problems/:id'  => 'problems#update', as: :helped
+  get  '/analysis'      => 'problems#analysis'
+  get '/sign_up'        => 'adies#new', as: :sign_up
+  post '/sign_up'       => 'adies#create', as: :add_adie
+  get '/adies'          => 'adies#index'
   root 'problems#index'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

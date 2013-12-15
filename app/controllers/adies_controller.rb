@@ -1,5 +1,6 @@
 class AdiesController < ApplicationController
   def index
+    @adies = Adie.all
   end
   
   def new
@@ -18,7 +19,7 @@ class AdiesController < ApplicationController
   private
 
   def adie_params
-    params.require(:adie).permit(:name)
+    params.require(:adie).permit(:name,:adatar)
   end
 
 end

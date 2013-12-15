@@ -1,1 +1,4 @@
-
+<% @adies.each do |adie| %>
+<%= adie.name %>
+<%= image_tag(adie.adatar_url, :width => 400) if adie.adatar.present? %>
+<% end %>
