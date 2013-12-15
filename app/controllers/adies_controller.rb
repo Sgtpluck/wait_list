@@ -9,7 +9,7 @@ class AdiesController < ApplicationController
   def create
     @adie = Adie.new(adie_params)
     if @adie.save
-      redirect_to root_path
+      redirect_to problems_path
     else
       render :new
     end
@@ -18,7 +18,7 @@ class AdiesController < ApplicationController
   private
 
   def adie_params
-    params.require(:adie).permit(:name)
+    params.require(:adie).permit(:name, :password, :password_confirmation)
   end
 
 end

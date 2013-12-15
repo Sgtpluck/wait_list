@@ -5,7 +5,7 @@
 <% end %>
 
 <%= form_for(@problem) do |f|%>
-  <%#= f.select(:adie_id, Adie.find(:all).collect {|p| [ p.name, p.id ] }) %>
+
   <%= f.label :adie_id, "What's your name?" %><br>
   <%= f.text_field :adie_id %><br><br>
 

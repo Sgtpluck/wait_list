@@ -1,22 +1,23 @@
 <div>
 
+  <!-- #this will be for resetting your password -->
+
 <%= form_for @adie, url: add_adie_path do |f|%>
 
   <div class ="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <% end %>
+    
   </div>
   <div class ="field">
     <%= f.label :password %>
-    <%= f.text_field :password %>
-    <% end %>
+    <%= f.password_field :password %>
   </div>
   <div class ="field">
     <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation %>
-    <% end %>
+    <%= f.password_field :password_confirmation %>
   </div>
-
+    <%= f.submit  %>
+<% end %>
 
 </div>
