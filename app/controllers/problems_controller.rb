@@ -20,11 +20,13 @@ class ProblemsController < ApplicationController
 
 
   def show
-    
   end
 
   def update
-    @problem
+    @problem = Problem.find(params[:id])
+    @problem.update(helped: true)
+    @problems = Problem.all
+    render :index
   end
 
 

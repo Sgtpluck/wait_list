@@ -1,4 +1,11 @@
-<h3>I'm sorry you're having a problem!</h3>
+<!-- PARAMS: <%#= params.inspect %><hr>
+PROBLEM: <%#= @problem.inspect %><hr>
+HELPED?<%#= @problems.each do |problem| %>
+<%#= problem.helped %>
+<%# end %> -->
+<hr>
+
+<h3>ALL YOUR PROBLEM ARE BELONG TO US</h3>
 
 <%= link_to 'Create New Problem', new_problem_path %> <br>
 
@@ -17,23 +24,27 @@
     </tr>
   </thead>
   <tbody> 
-  <% @problems.each do |problem| %>
-    <td><%= Adie.find(problem.adie_id).name %></td>
-    <td><%= problem.type %></td>
-    <td><%= problem.estimate %></td>
-    <td><%= problem.description %></td>
-
-
-    <td><%= form_for 'helped' do |f| %>
-      <%= f.label :"I've been helped!" %>
-          <%= f.check_box(:helped) %>
-          <%= f.submit %>
-    <% end %>
-
-  </td>
-
+    <% @problems.each do |problem| %>
+    <tr>
+    <% unless problem.helped %>
+        <td><%#= Adie.find(problem.adie_id).name %></td>
+        <td><%= problem.adie_id %></td>
+        <td><%= problem.type %></td>
+        <td><%= problem.estimate %></td>
+        <td><%= problem.description %></td>
+        <td>
+        <%= button_to "I've been helped!", helped_path(problem.id) %>
+        <%#= form_for problem, url: helped_path(problem.id) do |f| %>
+          <%#= f.label :"I've been helped!" %>
+          <%#= f.check_box(:helped, {checked: false}) %>
+          <%#= f.submit %>
+        <%# end %>
+        </td>
+      <% end %> 
+    </tr>
+    <% end %> <!-- end form -->
   </tbody>
-  <% end %>
+   
 </table>
   
      

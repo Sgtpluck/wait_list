@@ -6,8 +6,9 @@
 <%= form_for(@problem) do |f|%>
   <br>
   What's your name?<br>
-  <%= f.select(:adie_id, 
-         Adie.find(:all).collect {|p| [ p.name, p.id ] }) %><br>
+  <%#= f.select(:adie_id, Adie.find(:all).collect {|p| [ p.name, p.id ] }) %><br>
+  <%= f.label :adie_id %>
+  <%= f.text_field :adie_id %><br>
 
 What type of problem are you having?<br>
 
