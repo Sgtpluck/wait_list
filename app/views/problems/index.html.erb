@@ -1,15 +1,10 @@
-<!-- PARAMS: <%#= params.inspect %><hr>
-PROBLEM: <%#= @problem.inspect %><hr>
-HELPED?<%#= @problems.each do |problem| %>
-<%#= problem.helped %>
-<%# end %> -->
+<h3>All your Problems are Belong to Us</h3>
 <hr>
 
-<h3>ALL YOUR PROBLEM ARE BELONG TO US</h3>
-
 <%#= link_to 'Create New Problem', new_problem_path %> <br>
-
-<%= button_to 'Create New Problem', new_problem_path, method: :get %> 
+<div class="problem_button">
+  <%= button_to 'Create New Problem', new_problem_path, method: :get, class: "problem" %> 
+</div>
 
 <h2>Current Help Line </h2>
 
@@ -25,24 +20,23 @@ HELPED?<%#= @problems.each do |problem| %>
     </tr>
   </thead>
   <tbody> 
-    <% @problems.each do |problem| %>
-    <tr>
-    <% unless problem.helped %>
-        <!-- <td><%#= Adie.find(problem.adie_id).name %></td> -->
-        <td><%= problem.adie_id %></td>
-        <td><%= problem.type %></td>
-        <td><%= problem.estimate %></td>
-        <td><%= problem.description %></td>
-        <td>
-        <%= button_to "I've been helped!", helped_path(problem.id) %>
-        <%#= form_for problem, url: helped_path(problem.id) do |f| %>
-          <%#= f.label :"I've been helped!" %>
-          <%#= f.check_box(:helped, {checked: false}) %>
-          <%#= f.submit %>
-        <%# end %>
-        </td>
-      <% end %> 
-    </tr>
+    <% @sorted = @problems.sort_by {|problem| problem.created_at} %>
+    <% @sorted.each do |problem| %>
+      <tr>
+        <% unless problem.helped %>
+          <!-- <td><%#= Adie.find(problem.adie_id).name %></td> -->
+          <td><%= problem.adie_id %></td>
+          <td><%= problem.type %></td>
+          <td><%= problem.estimate %></td>
+          <td><%= problem.description %></td>
+          <td><%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %></td>
+          <%#= form_for problem, url: helped_path(problem.id) do |f| %>
+            <%#= f.label :"I've been helped!" %>
+            <%#= f.check_box(:helped, {checked: false}) %>
+            <%#= f.submit %>
+          <%# end %>
+        <% end %> 
+      </tr>
     <% end %> <!-- end form -->
   </tbody>
    

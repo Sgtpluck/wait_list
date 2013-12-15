@@ -7,7 +7,7 @@ class AdiesController < ApplicationController
   end
 
   def create
-     @adie = Adie.new(adie_params)
+    @adie = Adie.new(adie_params)
     if @adie.save
       redirect_to root_path
     else
