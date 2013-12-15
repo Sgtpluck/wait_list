@@ -1,16 +1,23 @@
 <div>
-<%= form_for @adie, url: add_adie_path do |f|%>
-
-  <div class ="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <%= f.label "Upload local file:" %><br />
-  <%= f.file_field :adatar %>
-  <%= f.hidden_field :adatar_cache %>
-
-  <%= f.submit "Submit" %>
-
-<% end %>
+  <!-- #this will be for resetting your password -->
+  <%= form_for @adie, url: add_adie_path do |f|%>
+    <div class ="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class ="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class ="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class = "field">
+      <%= f.label "Upload local file:" %><br />
+      <%= f.file_field :adatar %>
+      <%= f.hidden_field :adatar_cache %>
+    </div>
+    <%= f.submit "Submit" %>
+  <% end %>
 </div>
