@@ -10,8 +10,16 @@
     <div class='header'>
       <h1> Need Help?</h1>
     </div>
+
+    <div class= 'navbar'>
+      <% if session[:adie] %>
+        <%= button_to 'Sign out', sign_out_path, class: "sign_out" %>
+      <% end %>
+    </div>
+
     <div class='container'>
       <%= yield %>
     </div>
+  
   </body>
 </html>
