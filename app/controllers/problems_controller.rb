@@ -11,7 +11,7 @@ class ProblemsController < ApplicationController
 
   def create
     @problem = Problem.new(problem_params)
-    @problem[:adie_id] = session[:adie_id]  #right now, problem[:adie_id] returns the name of the adie. should still be integer
+    @problem[:adie_id] = session[:adie_id]
     if @problem.save
       redirect_to "/problems"
     else
