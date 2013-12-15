@@ -11,8 +11,9 @@ class ProblemsController < ApplicationController
 
   def create
     @problem = Problem.new(problem_params)
+    @problem[:adie_id] = session[:adie]
     if @problem.save
-      redirect_to problems_path
+      redirect_to "/problems"
     else
       render :new
     end
@@ -23,7 +24,7 @@ class ProblemsController < ApplicationController
 
   def update
     @problem.update(helped: true)
-    redirect_to :index
+    redirect_to "/problems"
   end
 
   def analysis

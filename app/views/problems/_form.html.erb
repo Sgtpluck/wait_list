@@ -4,10 +4,9 @@
   <%= error %><br>
 <% end %>
 
-<%= form_for(@problem) do |f|%>
+<%= form_for @problem, url: new_problem_path do |f| %>
 
-  What type of problem are you having?<br>
-
+    <%= f.label :type, "What type of problem are you having?" %><br>
     <%= f.select(:type, ['Rails','Ruby','CSS/HTML','Other']) %> <br><br>
     <%= f.label :description, "Tell me your woes:" %><br>
     <%= f.text_field :description %><br><br>

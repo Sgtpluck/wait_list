@@ -12,8 +12,11 @@ HelpLine::Application.routes.draw do
 
   get  '/analysis'      => 'problems#analysis'
   get '/adies'          => 'adies#index'
+  get '/help_me'        => 'problems#new'
+  post '/help_me'       => 'problems#create', as: :new_problem
+  get '/problems'       => 'problems#index'
 
-  resources :problems
+  # resources :problems
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
