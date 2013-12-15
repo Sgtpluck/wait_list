@@ -11,12 +11,12 @@
 <table>
   <thead>
     <tr>
-      <th>Adie, holla! </th>
-      <%#= button_to "Sign up", sign_up_path %>
-      <th>Type of problem</th>
-      <th>Time Estimate</th>
-      <th>Description</th>
-      <th>Helped?</th>
+      <th> # in line </th>
+      <th> Adie, holla! </th>
+      <th> Type of problem </th>
+      <th> Time Estimate </th>
+      <th> Description </th>
+      <th> Helped? </th>
     </tr>
   </thead>
   <tbody> 
@@ -25,6 +25,7 @@
       <tr>
         <% unless problem.helped %>
           <!-- <td><%#= Adie.find(problem.adie_id).name %></td> -->
+          <td><%= @sorted.index(problem)+1 %></td>
           <td><%= problem.adie_id %></td>
           <td><%= problem.type %></td>
           <td><%= problem.estimate %></td>

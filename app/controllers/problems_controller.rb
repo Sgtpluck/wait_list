@@ -24,7 +24,7 @@ class ProblemsController < ApplicationController
   def update
     @problem.update(helped: true)
     @problems = Problem.all
-    render :index
+    redirect_to root_path
   end
 
 private
