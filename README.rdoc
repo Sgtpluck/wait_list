@@ -1,5 +1,5 @@
 During project time, ADA students often put their names on the board to get help from instructors and TAs.  
-But sometimes, we forget to erase our names after being help.  Because now that we're developers, 
+But sometimes, we forget to erase our names after being helped.  Because now that we're developers, 
 we don't like leaving our computers, even for a little bit.
 So, this app allows folks to get added to the cue of those needing help.
 
