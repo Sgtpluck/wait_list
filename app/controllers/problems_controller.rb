@@ -10,6 +10,7 @@ class ProblemsController < ApplicationController
   end
 
   def create
+    @problem = Problem.new(problem_params)
     @problem[:adie_id] = session[:adie_id]
     if @problem.save
       redirect_to "/problems"

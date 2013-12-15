@@ -26,13 +26,12 @@
       <% @problems.sort_by {|problem| problem.created_at}.each_with_index do |problem, n| %>
         <tr>
           <td><%= n + 1 %></td>
-          <td>
-          <%= Adie.find(problem.adie_id) %></td>
+          <td><%= Adie.find(problem.adie_id).name %></td>
           <td><%= problem.type %></td>
           <td><%= problem.estimate %></td>
           <td><%= problem.description %></td>
           <td>
-            <% if session[:adie] == problem.adie_id %>
+            <% if session[:adie_id] == problem.adie_id %>
               <%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %>
             <% end %> 
           </td>

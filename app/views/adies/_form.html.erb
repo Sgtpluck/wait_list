@@ -14,9 +14,9 @@
       <%= f.password_field :password_confirmation %>
     </div>
     <div class = "field">
-      <%#= f.label "Upload local file:" %><br />
-      <%#= f.file_field :adatar %>
-      <%#= f.hidden_field :adatar_cache %>
+      <%= f.label "Upload local file:" %><br />
+      <%= f.file_field :adatar %>
+      <%= f.hidden_field :adatar_cache %>
     </div>
     <%= f.submit "Submit" %>
   <% end %>
