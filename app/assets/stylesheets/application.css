@@ -67,3 +67,7 @@ td .helped:hover {
   padding: 10px;
   font-size: 150%;
 }
+
+.relax .cats:hover {
+  cursor: pointer;
+}
