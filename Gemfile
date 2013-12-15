@@ -43,6 +43,9 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 
+# Handling time analysis
+ gem 'chronic_duration'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

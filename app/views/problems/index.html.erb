@@ -20,26 +20,16 @@
     </tr>
   </thead>
   <tbody> 
-    <% @sorted = @problems.sort_by {|problem| problem.created_at} %>
-    <% @sorted.each do |problem| %>
+    <% @problems.sort_by {|problem| problem.created_at}.each_with_index do |problem, n| %>
       <tr>
-        <% unless problem.helped %>
-          <!-- <td><%#= Adie.find(problem.adie_id).name %></td> -->
-          <td><%= @sorted.index(problem)+1 %></td>
+          <td><%= n + 1 %></td>
           <td><%= problem.adie_id %></td>
           <td><%= problem.type %></td>
           <td><%= problem.estimate %></td>
           <td><%= problem.description %></td>
           <td><%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %></td>
-          <%#= form_for problem, url: helped_path(problem.id) do |f| %>
-            <%#= f.label :"I've been helped!" %>
-            <%#= f.check_box(:helped, {checked: false}) %>
-            <%#= f.submit %>
-          <%# end %>
-        <% end %> 
       </tr>
-    <% end %> <!-- end form -->
-
+    <% end %> 
     
   </tbody>
    

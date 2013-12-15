@@ -23,8 +23,11 @@ class ProblemsController < ApplicationController
 
   def update
     @problem.update(helped: true)
-    @problems = Problem.all
     redirect_to root_path
+  end
+
+  def analysis
+    @problems = Problem.where(helped: true)
   end
 
 private
