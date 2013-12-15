@@ -18,25 +18,23 @@ class ProblemsController < ApplicationController
     end
   end
 
-
   def show
-    
   end
 
   def update
-    @problem
+    @problem.update(helped: true)
+    @problems = Problem.all
+    redirect_to root_path
   end
-
-
 
 private
 
-def set_problem
-  @problem=Problem.find(params[:id])
-end
+  def set_problem
+    @problem=Problem.find(params[:id])
+  end
 
-def problem_params
-  params.require(:problem).permit(:adie_id,:type,:description,:estimate,:helped)
-end
+  def problem_params
+    params.require(:problem).permit(:adie_id,:type,:description,:estimate,:helped)
+  end
 
 end

@@ -1,38 +1,50 @@
-<h3>I'm sorry you're having a problem!</h3>
+<h3>All your Problems are Belong to Us</h3>
+<hr>
 
-<%= link_to 'Create New Problem', new_problem_path %> <br>
-
+<%#= link_to 'Create New Problem', new_problem_path %> <br>
+<div class="problem_button">
+  <%= button_to 'Create New Problem', new_problem_path, method: :get, class: "problem" %> 
+</div>
 
 <h2>Current Help Line </h2>
 
 <table>
   <thead>
     <tr>
-      <th>Adie, holla! </th>
-      <th>Type of problem</th>
-      <th>Time Estimate</th>
-      <th>Description</th>
-      <th></th>
+      <th> # in line </th>
+      <th> Adie, holla! </th>
+      <th> Type of problem </th>
+      <th> Time Estimate </th>
+      <th> Description </th>
+      <th> Helped? </th>
     </tr>
   </thead>
   <tbody> 
-  <% @problems.each do |problem| %>
-    <td><%= Adie.find(problem.adie_id).name %></td>
-    <td><%= problem.type %></td>
-    <td><%= problem.estimate %></td>
-    <td><%= problem.description %></td>
+    <% @sorted = @problems.sort_by {|problem| problem.created_at} %>
+    <% @sorted.each do |problem| %>
+      <tr>
+        <% unless problem.helped %>
+          <!-- <td><%#= Adie.find(problem.adie_id).name %></td> -->
+          <td><%= @sorted.index(problem)+1 %></td>
+          <td><%= problem.adie_id %></td>
+          <td><%= problem.type %></td>
+          <td><%= problem.estimate %></td>
+          <td><%= problem.description %></td>
+          <td><%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %></td>
+          <%#= form_for problem, url: helped_path(problem.id) do |f| %>
+            <%#= f.label :"I've been helped!" %>
+            <%#= f.check_box(:helped, {checked: false}) %>
+            <%#= f.submit %>
+          <%# end %>
+        <% end %> 
+      </tr>
+    <% end %> <!-- end form -->
 
-
-    <td><%= form_for 'helped' do |f| %>
-      <%= f.label :"I've been helped!" %>
-          <%= f.check_box(:helped) %>
-          <%= f.submit %>
-    <% end %>
-
-  </td>
-
+    
   </tbody>
-  <% end %>
+   
 </table>
-  
+<div class="relax">
+  <%= button_to "RELAX!", "http://edgecats.net/", method: :get, class: "cats" %>
+</div>
      
