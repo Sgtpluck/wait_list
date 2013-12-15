@@ -2,8 +2,12 @@ HelpLine::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :problems
-  root 'problems#index'
+  
 
+  get "/sign_up" => "adies#new", as: :sign_up
+  post "/sign_up" => "adies#create", as: :add_adie
+
+  root 'problems#index'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
