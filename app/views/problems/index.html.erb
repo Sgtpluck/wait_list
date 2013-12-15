@@ -2,8 +2,10 @@
 <hr>
 
 <%#= link_to 'Create New Problem', new_problem_path %> <br>
+<%= flash.notice %>
+
 <div class="problem_button">
-  <%= button_to 'Create New Problem', new_problem_path, method: :get, class: "problem" %> 
+  <%= button_to 'Create New Problem', help_me_path, method: :get, class: "problem" %> 
 </div>
 
 <h2>Current Help Line </h2>
@@ -24,11 +26,16 @@
       <tr>
           <td><%= n + 1 %></td>
           <td>
-          <%= problem.adie_id %></td>
+          <%= Adie.find(problem.adie_id) %></td>
           <td><%= problem.type %></td>
           <td><%= problem.estimate %></td>
           <td><%= problem.description %></td>
-          <td><%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %></td>
+          <td>
+            <% if session[:adie] == problem.adie_id %>
+              <%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %>
+            <% end %> 
+          </td>
+
       </tr>
     <% end %> 
     
