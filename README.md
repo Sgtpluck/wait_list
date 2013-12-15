@@ -11,7 +11,9 @@ Currently an Adie can:
 -Remove herself once she's been helped.
 -Push the relax button to help work off some of the stress
 
+
 Features to Come:
+
 
 -Avatars attached to the names so that a TA knows which Adie needs help
 -Sign in or some sort of authentication so that only an Adie can add/remove herself from the list
