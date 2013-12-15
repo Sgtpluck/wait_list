@@ -10,14 +10,19 @@ Currently an Adie can:
 - Input details about the problem, including what type of problem it is, and an estimated length of time the question will take
 - Remove herself once she's been helped.
 - Push the relax button to help work off some of the stress
+- Avatars attached to the names so that a TA knows which Adie needs help
+- Sign in or some sort of authentication so that only an Adie can add/remove herself from the list
 
 Features to Come:
 
 
-- Avatars attached to the names so that a TA knows which Adie needs help
-- Sign in or some sort of authentication so that only an Adie can add/remove herself from the list
+- Extra fields for the Adie to detail what steps they've taken
 - A wait time (note: this will depend on the number/efficacy of the TAs, so this is a bit harder than just summing up the estimated time)
 - Adding more than one Adie to a problem, in the case of pair-programming
+- TA sign-in (does it look different?)
+- Incentivize helping people ahead of you on the list?
+- Adding rating/TA to helped solution
+
 
 
 Note: 
