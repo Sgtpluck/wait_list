@@ -1,19 +1,18 @@
-
+<div class= "greeting">
+  <h3>Hi <%= session[:adie]%>!</h3>
+</div>
 
 <% @problem.errors.full_messages.each do |error| %>
   <%= error %><br>
 <% end %>
 
 <%= form_for @problem, url: new_problem_path do |f| %>
-
-    <%= f.label :type, "What type of problem are you having?" %><br>
-    <%= f.select(:type, ['Rails','Ruby','CSS/HTML','Other']) %> <br><br>
-    <%= f.label :description, "Tell me your woes:" %><br>
-    <%= f.text_field :description %><br><br>
-
-  Estimated time to solve the problem: (BE HONEST.)<br>
+  <%= f.label :type, "What type of problem are you having?" %><br>
+  <%= f.select(:type, ['Rails','Ruby','CSS/HTML','Other']) %> <br><br>
+  <%= f.label :description, "Tell me your woes:" %><br>
+  <%= f.text_field :description %><br><br>
+  <%= f.label :estimate, "Estimated time to solve the problem: (BE HONEST.)" %><br>
   <%= f.select(:estimate, ['5 minutes','20 minutes','45 minutes','possibly hours','Not Sure','someone have mercy on my soul']) %> 
-  <br><br>
-
+<br><br>
   <%= f.submit 'Help me plz!' %>
 <% end %>
