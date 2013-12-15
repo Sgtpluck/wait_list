@@ -16,12 +16,12 @@ Features to Come:
 
 - Avatars attached to the names so that a TA knows which Adie needs help
 - Sign in or some sort of authentication so that only an Adie can add/remove herself from the list
-- A wait time
+- A wait time (note: this will depend on the number/efficacy of the TAs, so this is a bit harder than just summing up the estimated time)
 - Adding more than one Adie to a problem, in the case of pair-programming
 
 
 Note: 
-Currently the problems are "retired" but not destroyed. Long-term I hope to use this system to be able to perform some analysis on the types of questions we have and how long it takes for them to be answered, in the hopes of further optimizing our classroom resources.
+Currently the problems are "retired" but not destroyed. They are housed on another page that stores analysis. Long-term I hope to use this system to be able to perform some analysis on the types of questions we have and how long it takes for them to be answered, in the hopes of further optimizing our classroom resources.
 
 If you have ideas for features or want to help with the code, feel free to submit a pull request.
 
