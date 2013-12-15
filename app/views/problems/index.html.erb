@@ -7,8 +7,9 @@ HELPED?<%#= @problems.each do |problem| %>
 
 <h3>ALL YOUR PROBLEM ARE BELONG TO US</h3>
 
-<%= link_to 'Create New Problem', new_problem_path %> <br>
+<%#= link_to 'Create New Problem', new_problem_path %> <br>
 
+<%= button_to 'Create New Problem', new_problem_path, method: :get %> 
 
 <h2>Current Help Line </h2>
 
@@ -16,18 +17,18 @@ HELPED?<%#= @problems.each do |problem| %>
   <thead>
     <tr>
       <th>Adie, holla! </th>
-      <%= button_to "Sign up", sign_up_path %>
+      <%#= button_to "Sign up", sign_up_path %>
       <th>Type of problem</th>
       <th>Time Estimate</th>
       <th>Description</th>
-      <th></th>
+      <th>Helped?</th>
     </tr>
   </thead>
   <tbody> 
     <% @problems.each do |problem| %>
     <tr>
     <% unless problem.helped %>
-        <td><%#= Adie.find(problem.adie_id).name %></td>
+        <!-- <td><%#= Adie.find(problem.adie_id).name %></td> -->
         <td><%= problem.adie_id %></td>
         <td><%= problem.type %></td>
         <td><%= problem.estimate %></td>
