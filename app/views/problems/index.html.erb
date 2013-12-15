@@ -2,28 +2,29 @@
 <hr>
 
 <%#= link_to 'Create New Problem', new_problem_path %> <br>
+<h4> Hi <%= session[:adie]%>. Don't panic. </h4>
 <%= flash.notice %>
 
 <div class="problem_button">
   <%= button_to 'Create New Problem', help_me_path, method: :get, class: "problem" %> 
 </div>
 
-<h2>Current Help Line </h2>
-
-<table>
-  <thead>
-    <tr>
-      <th> # in line </th>
-      <th> Adie, holla! </th>
-      <th> Type of problem </th>
-      <th> Time Estimate </th>
-      <th> Description </th>
-      <th> Helped? </th>
-    </tr>
-  </thead>
-  <tbody> 
-    <% @problems.sort_by {|problem| problem.created_at}.each_with_index do |problem, n| %>
+<div class="queue_chart">
+  <h2>Current Help Line </h2>
+  <table>
+    <thead>
       <tr>
+        <th> # in line </th>
+        <th> Adie, holla! </th>
+        <th> Type of problem </th>
+        <th> Time Estimate </th>
+        <th> Description </th>
+        <th> Helped? </th>
+      </tr>
+    </thead>
+    <tbody> 
+      <% @problems.sort_by {|problem| problem.created_at}.each_with_index do |problem, n| %>
+        <tr>
           <td><%= n + 1 %></td>
           <td>
           <%= Adie.find(problem.adie_id) %></td>
@@ -35,13 +36,12 @@
               <%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %>
             <% end %> 
           </td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div>
 
-      </tr>
-    <% end %> 
-    
-  </tbody>
-   
-</table>
 <div class="relax">
   <%= button_to "RELAX!", "http://edgecats.net/", method: :get, class: "cats" %>
 </div>

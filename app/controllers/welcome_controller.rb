@@ -14,4 +14,9 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def sign_out
+    session[:adie] = nil
+    redirect_to root_path, notice: "You have successfully signed out!"
+  end
+
 end

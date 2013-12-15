@@ -12,7 +12,6 @@
   <%= f.label :description, "Tell me your woes:" %><br>
   <%= f.text_field :description %><br><br>
   <%= f.label :estimate, "Estimated time to solve the problem: (BE HONEST.)" %><br>
-  <%= f.select(:estimate, ['5 minutes','20 minutes','45 minutes','possibly hours','Not Sure','someone have mercy on my soul']) %> 
-<br><br>
+  <%= f.select(:estimate, ['5 minutes','20 minutes','45 minutes','possibly hours','Not Sure','someone have mercy on my soul'])%> <br><br>
   <%= f.submit 'Help me plz!' %>
 <% end %>

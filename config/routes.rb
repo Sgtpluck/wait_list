@@ -3,18 +3,20 @@ HelpLine::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  post "/sign-in" => 'welcome#sign_in', as: :sign_in
+  post "/sign-in"       => 'welcome#sign_in', as: :sign_in
+  post "/sign-out"      => 'welcome#sign_out', as: :sign_out
 
-  get "/sign_up" => "adies#new", as: :sign_up
-  post "/sign_up" => "adies#create", as: :add_adie
-  post "/problems/:id"  => "problems#update", as: :helped
-  root 'welcome#home'
+  get "/sign-up"        => "adies#new", as: :sign_up
+  post "/sign-up"       => "adies#create", as: :add_adie # make only admin accessible?
 
-  get  '/analysis'      => 'problems#analysis'
+  get '/analysis'       => 'problems#analysis'
   get '/adies'          => 'adies#index'
+
   get '/help_me'        => 'problems#new'
   post '/help_me'       => 'problems#create', as: :new_problem
   get '/problems'       => 'problems#index'
+  post "/problems/:id"  => "problems#update", as: :helped
+  root 'welcome#home'
 
   # resources :problems
 
