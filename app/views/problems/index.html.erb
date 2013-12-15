@@ -1,3 +1,4 @@
+<%=session[:adie] %>
 <h3>All your Problems are Belong to Us</h3>
 <hr>
 
@@ -32,7 +33,11 @@
           <td><%= problem.type %></td>
           <td><%= problem.estimate %></td>
           <td><%= problem.description %></td>
-          <td><%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %></td>
+          <td>
+            <% if session[:adie] == problem.adie_id %>
+              <%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %>
+            <% end %> 
+          </td>
           <%#= form_for problem, url: helped_path(problem.id) do |f| %>
             <%#= f.label :"I've been helped!" %>
             <%#= f.check_box(:helped, {checked: false}) %>

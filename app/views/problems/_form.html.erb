@@ -6,9 +6,6 @@
 
 <%= form_for(@problem) do |f|%>
 
-  <%= f.label :adie_id, "What's your name?" %><br>
-  <%= f.text_field :adie_id %><br><br>
-
   What type of problem are you having?<br>
 
     <%= f.select(:type, ['Rails','Ruby','CSS/HTML','Other']) %> <br><br>
