@@ -11,24 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131215190746) do
+ActiveRecord::Schema.define(version: 20131215224059) do
 
   create_table "adies", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
     t.string   "adatar"
+    t.string   "password_digest"
   end
 
   create_table "problems", force: true do |t|
     t.string   "type"
     t.string   "description"
     t.string   "estimate"
-    t.string   "adie_id"
+    t.integer  "adie_id",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "helped",      default: false
+    t.boolean  "helped",                  default: false
   end
 
 end
