@@ -2,14 +2,16 @@ HelpLine::Application.routes.draw do
   get "welcome/home" => 'welcome#home' #unnecessary?
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  
-  post "/sign-in" => 'welcome#sign_in', as: :sign_in
 
+  post "/sign-in" => 'welcome#sign_in', as: :sign_in
 
   get "/sign_up" => "adies#new", as: :sign_up
   post "/sign_up" => "adies#create", as: :add_adie
   post "/problems/:id"  => "problems#update", as: :helped
   root 'welcome#home'
+
+  get  '/analysis'      => 'problems#analysis'
+  get '/adies'          => 'adies#index'
 
   resources :problems
 

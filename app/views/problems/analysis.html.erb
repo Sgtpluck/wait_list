@@ -1,0 +1,31 @@
+<h3> All Your Analysis Belongs To Us </h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> Adie, holla! </th>
+      <th> Type of problem </th>
+      <th> Time Estimate </th>
+      <th> Description </th>
+      <th> Time Created </th>
+      <th> Time Helped </th>
+      <th> Time it took to be helped </th>
+    </tr>
+  </thead>
+  <tbody> 
+    <% @problems.sort_by {|problem| problem.created_at}.each do |problem| %>
+      <tr>
+          <td><%= problem.adie_id %></td>
+          <td><%= problem.type %></td>
+          <td><%= problem.estimate %></td>
+          <td><%= problem.description %></td>
+          <td><%= problem.created_at %></td>
+          <td><%= problem.updated_at %></td>
+          <td><%= ChronicDuration.output(problem.updated_at - problem.created_at) %>
+          </td>
+      </tr>
+    <% end %> 
+    
+  </tbody>
+   
+</table>

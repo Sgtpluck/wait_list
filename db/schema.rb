@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20131215190746) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.string   "adatar"
   end
 
   create_table "problems", force: true do |t|

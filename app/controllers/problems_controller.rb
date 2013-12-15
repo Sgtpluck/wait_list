@@ -26,6 +26,10 @@ class ProblemsController < ApplicationController
     redirect_to :index
   end
 
+  def analysis
+    @problems = Problem.where(helped: true)
+  end
+
 private
 
   def set_problem
