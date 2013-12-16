@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
     adie = Adie.find(params[:name])
     if adie && adie.authenticate(params[:password])
       session[:adie_id] = adie.id
-      session[:adie] = adie.name
+      # session[:adie] = adie.name
       redirect_to "/problems", notice: "You are now signed in!"
     else
       render :home, notice: "Invalid password :("
