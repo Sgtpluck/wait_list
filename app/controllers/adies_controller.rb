@@ -26,8 +26,8 @@ class AdiesController < ApplicationController
 
   def update
     @adie = Adie.find(session[:adie_id])
-    @adie[:adatar] = @adie[:adatar]
-    @adie[:name] = session[:adie]
+    # @adie[:adatar] = @adie[:adatar]
+    # @adie[:name] = session[:adie]
     if @adie.update(adie_params)
       flash[:notice] = "Your password was successfully updated!"
       redirect_to problems_path
