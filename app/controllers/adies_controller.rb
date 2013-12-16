@@ -13,7 +13,7 @@ class AdiesController < ApplicationController
   def create
     @adie = Adie.new(adie_params)
     if @adie.save
-      redirect_to adies_path
+      redirect_to root_path
     else
       flash[:notice] = "This Adie could not be saved"
       render :new
