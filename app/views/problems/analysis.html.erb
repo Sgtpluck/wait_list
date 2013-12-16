@@ -15,7 +15,7 @@
   <tbody> 
     <% @problems.sort_by {|problem| problem.created_at}.each do |problem| %>
       <tr>
-          <td><%= Adie.find(problem.adie_id) %></td>
+          <td><%= Adie.find(problem.adie_id).name %></td>
           <td><%= problem.type %></td>
           <td><%= problem.estimate %></td>
           <td><%= problem.description %></td>
