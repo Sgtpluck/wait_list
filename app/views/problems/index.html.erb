@@ -2,11 +2,10 @@
 <hr>
 
 <%#= link_to 'Create New Problem', new_problem_path %> <br>
-<h4> Hi <%= session[:adie]%>. Don't panic. </h4>
-<%= flash.notice %>
+<h4> Hi <%= session[:adie]%>. <%=link_to "DON'T PANIC.", "http://edgecats.net/" %> </h4>
 
 <div class="problem_button">
-  <%= button_to 'Create New Problem', help_me_path, method: :get, class: "problem" %> 
+  <%= button_to 'Create New Problem', help_me_path, method: :get, class: "problem" %>
 </div>
 
 <div class="queue_chart">
@@ -42,7 +41,4 @@
   </table>
 </div>
 
-<div class="relax">
-  <%= button_to "RELAX!", "http://edgecats.net/", method: :get, class: "cats" %>
-</div>
      

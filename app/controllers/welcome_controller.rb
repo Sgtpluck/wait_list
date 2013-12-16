@@ -11,7 +11,8 @@ class WelcomeController < ApplicationController
       # session[:adie] = adie.name
       redirect_to "/problems", notice: "You are now signed in!"
     else
-      render :home, notice: "Invalid password :("
+      flash[:notice] = "Invalid password :("
+      render :home
     end
   end
 
