@@ -1,0 +1,25 @@
+<%= session[:adie] %>
+<%= params.inspect %>
+<hr>
+
+<h3>Reset your password</h3>
+
+<h4><%= @adie.name %></h4>
+
+<!-- show the profile picture here -->
+<!-- maybe confirm password before allow to reset? -->
+
+<%= form_for @adie, url: reset_password_path do |f|%>
+<div class ="field">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+<div class ="field">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+</div>
+<div class ="field">
+  <%= f.submit %>
+</div>
+
+<% end %>
