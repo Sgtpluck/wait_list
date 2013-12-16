@@ -5,11 +5,32 @@
   font-variant: small-caps;
 }
 
-
 .container {
   width: 600px;
   margin: 50px auto;
   text-align: center;
+}
+
+.sign-in {
+  width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.navbar ul{
+  /*border: 1px solid black;*/
+  width: 500px;
+  margin: 50px auto;
+  list-style-type: none;
+}
+
+.navbar .button_to {
+  display: block;
+  text-align: right;
+}
+
+.navbar .nav:hover {
+  cursor: pointer;
 }
 
 body {
@@ -20,7 +41,6 @@ table {
   border: 2px solid black;
   border-spacing: 0;
 }
-
 
 td {
   border: 1px solid black;
@@ -35,7 +55,7 @@ th {
 }
 
 h2 {
-  font-family: "Lucida sans unicode";
+  /*font-family: "Lucida sans unicode";*/
   color: white;
   padding: 5px; 
   font-size: 20px;
@@ -60,18 +80,7 @@ h3 {
   text-align: left;
 }
 
-
 td .helped:hover {
-  cursor: pointer;
-}
-
-.relax {
-  margin: 10px;
-  padding: 10px;
-  font-size: 150%;
-}
-
-.relax .cats:hover {
   cursor: pointer;
 }
 
