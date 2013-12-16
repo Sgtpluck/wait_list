@@ -2,7 +2,11 @@ class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
   
   def index
-    @problems = Problem.where(helped: false)
+    if session[:adie_id]
+      @problems = Problem.where(helped: false)
+    else
+      redirect_to '/'
+    end
   end
 
   def new

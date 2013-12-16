@@ -9,6 +9,7 @@
 .container {
   width: 600px;
   margin: 50px auto;
+  text-align: center;
 }
 
 body {
@@ -56,8 +57,9 @@ h3 {
 }
 
 .button_to {
-  text-align: center;
+  text-align: left;
 }
+
 
 td .helped:hover {
   cursor: pointer;
@@ -73,7 +75,3 @@ td .helped:hover {
   cursor: pointer;
 }
 
-.navbar {
-
-  
-}
