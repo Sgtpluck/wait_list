@@ -1,4 +1,7 @@
 class AdiesController < ApplicationController
+
+  http_basic_authenticate_with name: "Sgt Pluck", password: "suchpassword"
+
   def index
     @adies = Adie.all
   end
@@ -10,8 +13,9 @@ class AdiesController < ApplicationController
   def create
     @adie = Adie.new(adie_params)
     if @adie.save
-      redirect_to problems_path
+      redirect_to adies_path
     else
+      flash[:notice] = "This Adie could not be saved"
       render :new
     end
   end
@@ -19,7 +23,7 @@ class AdiesController < ApplicationController
   private
 
   def adie_params
-    params.require(:adie).permit(:name, :password, :password_confirmation, :adatar)
+    params.require(:adie).permit(:name, :password, :password_confirmation) #:adatar
   end
 
 end

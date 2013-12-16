@@ -1,5 +1,11 @@
-<% @adies.each do |adie| %>
-<%= image_tag(adie.adatar_url, :width => 400) if adie.adatar.present? %><br>
-<%= adie.name %>
-<%= adie.id %>
-<% end %>
+
+<ol>
+  <% @adies.each do |adie| %>
+    <li><%= adie.name %>
+    <%= image_tag(adie.adatar_url, :width => 400) if adie.adatar.present? %></li>
+  <% end %>
+
+</ol>
+
+<%= link_to "Back to sign in page", root_url %>
+
