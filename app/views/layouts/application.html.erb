@@ -12,12 +12,16 @@
     </div>
 
     <div class= 'navbar'>
+      <%= link_to 'See/Create a problem!', problems_path %>
       <% if session[:adie] %>
-        <%= button_to 'Sign out', sign_out_path, class: "sign_out" %>
+        <%= button_to 'Sign out', sign_out_path, class: 'sign_out' %>
+        <% else %>
+        <%= button_to 'Sign in', '/', method: :get, class: 'sign_out' %>
       <% end %>
     </div>
 
     <div class='container'>
+      <%= flash.notice %>
       <%= yield %>
     </div>
   
