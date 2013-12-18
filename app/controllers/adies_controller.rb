@@ -3,7 +3,11 @@ class AdiesController < ApplicationController
   http_basic_authenticate_with name: "Sgt Pluck", password: "suchpassword", except: [:show, :update]
 
   def index
-    @adies = Adie.all
+    if session[:adie_id]
+      @adies = Adie.all
+    else
+      redirect_to '/', notice: "Please sign in to view the Adies or create a problem."
+    end
   end
   
   def new

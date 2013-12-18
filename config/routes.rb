@@ -18,8 +18,8 @@ HelpLine::Application.routes.draw do
   post "/problems/:id"  => "problems#update", as: :helped
   root 'welcome#home'
 
-  get '/profile'    => 'adies#show', as: :profile
-  patch '/profile'  => 'adies#update', as: :reset_password
+  get '/profile'        => 'adies#show', as: :profile
+  patch '/profile'      => 'adies#update', as: :reset_password
 
   # resources :problems
 
