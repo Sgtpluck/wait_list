@@ -4,7 +4,7 @@ class CreateProblems < ActiveRecord::Migration
       t.string :type
       t.string :description
       t.string :estimate
-      t.string :adie_id
+      t.integer :adie_id
 
       t.timestamps
     end
