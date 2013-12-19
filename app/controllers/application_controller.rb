@@ -5,12 +5,5 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def adies
-  #   @adies = Adie.all.map do |adie|
-  #     [adie.name, adie.id]
-  #   end
-  # end
-
-  # helper_method :adies
 
 end

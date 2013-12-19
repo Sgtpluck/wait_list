@@ -1,7 +1,11 @@
 class WelcomeController < ApplicationController
 
   def home
-    @adie = Adie.new
+    if session[:adie]
+      redirect_to problems_path
+    else
+      @adie = Adie.new
+    end
   end
 
   def sign_in
