@@ -4,6 +4,4 @@ class Adie < ActiveRecord::Base
   has_many :problems #but a dude ain't one
   mount_uploader :adatar, AdatarUploader
 
-  # validates :adatar, presence: true
-
 end
