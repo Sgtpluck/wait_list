@@ -1,5 +1,5 @@
 class ProblemsController < ApplicationController
-  before_action :set_problem, only: [:show, :edit, :update, :destroy]
+  before_action :set_problem, only: [:show, :edit, :update, :destroy, :report]
   
   def index
     if session[:adie_id]
@@ -17,7 +17,8 @@ class ProblemsController < ApplicationController
     @problem = Problem.new(problem_params)
     @problem[:adie_id] = session[:adie_id]
     if @problem.save
-      redirect_to "/problems"
+      Problem.report("#{Adie.find(@problem.adie_id).name} is having a problem with #{@problem.type}. The problem is #{@problem.description}. Estimated time to fix: #{@problem.estimate}")
+      redirect_to '/problems'
     else
       render :new
     end

@@ -20,6 +20,7 @@ HelpLine::Application.routes.draw do
 
   get '/profile'        => 'adies#show', as: :profile
   patch '/profile'      => 'adies#update', as: :reset_password
+  get 'report'         => 'problems#report'
 
   # resources :problems
 

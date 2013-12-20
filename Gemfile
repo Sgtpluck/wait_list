@@ -7,6 +7,8 @@ gem 'rails', '4.0.2'
 gem 'carrierwave'
 gem 'fog'
 gem 'unf' 
+gem 'figaro'
+gem 'tinder'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
