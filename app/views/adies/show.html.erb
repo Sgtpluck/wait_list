@@ -1,31 +1,5 @@
 <%= session[:adie] %>
 <hr>
+<%= render 'reset' %>
 
-<h3>Reset your password</h3>
-
-<h4><%= @adie.name %></h4>
-
-<!-- show the profile picture here -->
-<!-- maybe confirm password before allow to reset? -->
-
-<%= form_for @adie, url: reset_password_path do |f|%>
-
-<div class ="field">
-  <%= f.label :password, "New password:" %>
-  <%= f.password_field :password %>
-</div>
-<div class ="field">
-  <%= f.label :password_confirmation, "Confirm your new password" %>
-  <%= f.password_field :password_confirmation %>
-</div>
-<div class ="field">
-
-  <div class = "field">
-      <%= f.label "Upload local file:" %><br />
-      <%= f.file_field :adatar %>
-      <%= f.hidden_field :adatar_cache %>
-    </div>
-  <%= f.submit %>
-</div>
-
-<% end %>
+<!-- Rating: How  -->

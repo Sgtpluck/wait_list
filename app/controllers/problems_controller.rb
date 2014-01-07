@@ -3,7 +3,7 @@ class ProblemsController < ApplicationController
   
   def index
     if session[:adie_id]
-      @problems = Problem.where(helped: false)
+      @problems = Problem.where.not(helped: 'helped')
     else
       redirect_to '/'
     end
@@ -17,7 +17,8 @@ class ProblemsController < ApplicationController
     @problem = Problem.new(problem_params)
     @problem[:adie_id] = session[:adie_id]
     if @problem.save
-      Problem.report("#{Adie.find(@problem.adie_id).name} is having a problem with #{@problem.type}. The problem is #{@problem.description}. Estimated time to fix: #{@problem.estimate}")
+      # removing this so that I can develop without bothering everyone in campfire.
+      # Problem.report("#{Adie.find(@problem.adie_id).name} is having a problem with #{@problem.type}. The problem is #{@problem.description}. Estimated time to fix: #{@problem.estimate}")
       redirect_to '/problems'
     else
       render :new
@@ -28,12 +29,16 @@ class ProblemsController < ApplicationController
   end
 
   def update
-    @problem.update(helped: true)
-    redirect_to "/problems"
+    if @problem.helped == 'needs help'
+      @problem.update(helped: 'being helped')
+    elsif @problem.helped == 'being helped'
+      @problem.update(helped: 'helped')
+    end
+    redirect_to '/problems'
   end
 
   def analysis
-    @problems = Problem.where(helped: true)
+    @problems = Problem.where(helped: 'helped')
   end
 
 private

@@ -31,7 +31,9 @@
           <td><%= problem.estimate %></td>
           <td><%= problem.description %></td>
           <td>
-            <% if session[:adie_id] == problem.adie_id %>
+            <% if session[:adie_id] == problem.adie_id && problem.helped == 'needs help' %>
+              <%= button_to "I'm being helped!", helped_path(problem.id), class: "helped" %>
+              <% elsif session[:adie_id] == problem.adie_id && problem.helped == 'being helped' %>
               <%= button_to "I've been helped!", helped_path(problem.id), class: "helped" %>
             <% end %> 
           </td>
