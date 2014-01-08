@@ -17,7 +17,7 @@
       <%#= link_to 'See/Create a problem!', problems_path %>
         <% if session[:adie] %>
           <li><%= button_to 'Sign out', sign_out_path, class: 'nav' %></li>
-          <li><%= button_to 'Reset your password', profile_path, method: :get, class: 'nav'%></li>
+          <li><%= button_to 'Profile Page', profile_path, method: :get, class: 'nav'%></li>
         <% else %>
           <li><%= button_to 'Sign in', '/', method: :get, class: 'nav' %></li>
         <% end %>
