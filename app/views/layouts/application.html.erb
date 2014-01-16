@@ -6,23 +6,20 @@
      <%= csrf_meta_tags %>
   <meta http-equiv="refresh" content="60" />
   </head>
-
   <body>
-    <div class='header'>
-      <h1> Need Help?</h1>
-    </div>
-    <div class='container'>
-      <div class= 'navbar'>
-      <ul>
-      <%#= link_to 'See/Create a problem!', problems_path %>
+    <div class='ui center aligned header'>
+      <h1> Here, let me fix that for you.</h1>
+      <span class='head_links'>
         <% if session[:adie] %>
-          <li><%= button_to 'Sign out', sign_out_path, class: 'nav' %></li>
-          <li><%= button_to 'Profile Page', profile_path, method: :get, class: 'nav'%></li>
+          <%= button_to 'Sign out', sign_out_path, class: 'ui left attached mini button' %>
+          <%= button_to 'Profile Page', profile_path, method: :get, class: 'ui right attached mini button' %>
         <% else %>
-          <li><%= button_to 'Sign in', '/', method: :get, class: 'nav' %></li>
+          <%= button_to 'Sign in', '/', method: :get, class: 'nav' %>
         <% end %>
-      </ul>
+      </span>
     </div>
+    <hr>
+    <div class="container">
       <%= flash.notice %>
       <%= yield %>
     </div>

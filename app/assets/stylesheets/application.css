@@ -1,13 +1,14 @@
-.header {
-  font-size: 31px;
-  height: 50px;
-  text-align: center;
-  font-variant: small-caps;
+/*/*
+ *= require_self
+ *= require_tree .
+ */
+.head_links {
+  display: inline-flex;
 }
 
 .container {
   width: 600px;
-  margin: 50px auto;
+  margin: auto auto;
   text-align: center;
 }
 
@@ -84,3 +85,4 @@ td .helped:hover {
   cursor: pointer;
 }
 
+*/

@@ -1,13 +1,13 @@
 HelpLine::Application.routes.draw do
-  get "welcome/home" => 'welcome#home' #unnecessary?
+  root 'welcome#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   get 'sign-in'         => 'welcome#home'
-  post "/sign-in"       => 'welcome#sign_in', as: :sign_in
-  post "/sign-out"      => 'welcome#sign_out', as: :sign_out
+  post "/sign_in"       => 'welcome#sign_in', as: :sign_in
+  post "/sign_out"      => 'welcome#sign_out', as: :sign_out
 
-  get "/sign-up"        => "adies#new", as: :sign_up
-  post "/sign-up"       => "adies#create", as: :add_adie # make only admin accessible?
+  get "/sign_up"        => "adies#new", as: :sign_up
+  post "/sign_up"       => "adies#create", as: :add_adie # make only admin accessible?
 
   get '/analysis'       => 'problems#analysis'
   get '/adies'          => 'adies#index'
@@ -16,11 +16,10 @@ HelpLine::Application.routes.draw do
   post '/help_me'       => 'problems#create', as: :new_problem
   get '/problems'       => 'problems#index'
   post "/problems/:id"  => "problems#update", as: :helped
-  root 'welcome#home'
 
   get '/profile'        => 'adies#show', as: :profile
   patch '/profile'      => 'adies#update', as: :reset_password
-  get 'report'         => 'problems#report'
+      
 
   # resources :problems
 

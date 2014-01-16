@@ -51,6 +51,11 @@ gem 'bcrypt-ruby'
 # Handling time analysis
  gem 'chronic_duration'
 
+ # To make it prettier
+gem 'therubyracer', platforms: :ruby # or any other runtime
+gem 'less-rails'
+gem 'semantic-ui-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

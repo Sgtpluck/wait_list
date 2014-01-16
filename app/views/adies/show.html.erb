@@ -4,8 +4,7 @@
 <br>
 Problems: <br>
 <% @adie.problems.where(helped: 'helped').each_with_index do |problem, n| %>
-  <%= n %> <%= problem.description %><br>
-<!--   <#%= button_to 'Rate this solution!', rating_path %> -->
+  <%= n %>. <%= problem.description %> 
+ <!--  <#% link_to 'Rate this solution', new_rating_path %> <br> -->
+ <br>
   <% end %>
-
-<!-- Rating: How  -->
