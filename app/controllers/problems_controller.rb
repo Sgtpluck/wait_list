@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy, :report]
-  
+
   def index
     if session[:adie_id]
       @problems = Problem.where.not(helped: 'helped')
@@ -16,9 +16,13 @@ class ProblemsController < ApplicationController
   def create
     @problem = Problem.new(problem_params)
     @problem[:adie_id] = session[:adie_id]
+
     if @problem.save
-      # removing this so that I can develop without bothering everyone in campfire.
-      # Problem.report("#{Adie.find(@problem.adie_id).name} is having a problem with #{@problem.type}. The problem is #{@problem.description}. Estimated time to fix: #{@problem.estimate}")
+      Problem.report("#{Adie.find(@problem.adie_id).name} is having a " +
+                     "problem with #{@problem.type}. The problem is " +
+                     "#{@problem.description}. Estimated time to fix: " +
+                     "#{@problem.estimate} -- http://helplist.herokuapp.com/problems")
+
       redirect_to '/problems'
     else
       render :new
@@ -34,6 +38,7 @@ class ProblemsController < ApplicationController
     elsif @problem.helped == 'being helped'
       @problem.update(helped: 'helped')
     end
+
     redirect_to '/problems'
   end
 
@@ -48,7 +53,10 @@ private
   end
 
   def problem_params
-    params.require(:problem).permit(:adie_id,:type,:description,:estimate,:helped)
+    params.require(:problem).permit(:adie_id,
+                                    :type,
+                                    :description,
+                                    :estimate,
+                                    :helped)
   end
-
 end
