@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy, :report]
-  
+
   def index
     if session[:adie_id]
       @problems = Problem.where.not(helped: 'helped')
@@ -34,6 +34,7 @@ class ProblemsController < ApplicationController
     elsif @problem.helped == 'being helped'
       @problem.update(helped: 'helped')
     end
+
     redirect_to '/problems'
   end
 
@@ -48,7 +49,10 @@ private
   end
 
   def problem_params
-    params.require(:problem).permit(:adie_id,:type,:description,:estimate,:helped)
+    params.require(:problem).permit(:adie_id,
+                                    :type,
+                                    :description,
+                                    :estimate,
+                                    :helped)
   end
-
 end
