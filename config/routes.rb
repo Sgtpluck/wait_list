@@ -14,11 +14,13 @@ HelpLine::Application.routes.draw do
 
   get '/help_me'        => 'problems#new'
   post '/help_me'       => 'problems#create', as: :new_problem
-  get '/problems'       => 'problems#index'
+  get '/problems'       => 'problems#index', as: :problems
   post "/problems/:id"  => "problems#update", as: :helped
 
   get '/profile'        => 'adies#show', as: :profile
   patch '/profile'      => 'adies#update', as: :reset_password
+
+  
       
 
   # resources :problems

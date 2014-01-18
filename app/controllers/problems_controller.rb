@@ -19,7 +19,7 @@ class ProblemsController < ApplicationController
     if @problem.save
       # removing this so that I can develop without bothering everyone in campfire.
       # Problem.report("#{Adie.find(@problem.adie_id).name} is having a problem with #{@problem.type}. The problem is #{@problem.description}. Estimated time to fix: #{@problem.estimate}")
-      redirect_to '/problems'
+      redirect_to problems_path
     else
       render :new
     end
@@ -34,7 +34,7 @@ class ProblemsController < ApplicationController
     elsif @problem.helped == 'being helped'
       @problem.update(helped: 'helped')
     end
-    redirect_to '/problems'
+    redirect_to problems_path
   end
 
   def analysis

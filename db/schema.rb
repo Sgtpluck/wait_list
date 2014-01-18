@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140109224841) do
     t.integer  "rating"
     t.text     "solution"
     t.integer  "satisfaction"
+    t.integer  "problem_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

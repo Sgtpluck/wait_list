@@ -5,6 +5,7 @@ class CreateRatings < ActiveRecord::Migration
       t.integer :rating
       t.text :solution
       t.integer :satisfaction
+      t.integer :problem_id
 
       t.timestamps
     end

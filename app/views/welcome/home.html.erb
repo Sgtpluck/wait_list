@@ -7,7 +7,6 @@
     <%= select_tag :name, options_for_select(Adie.all.collect{ |u| [u.name, u.id] }) %><br>
     <%= label_tag :password %> 
     <%= password_field_tag :password, params[:password] %><br>
-    <!-- might need password_confirmation here? -->
     <%= submit_tag "Sign-in!" %>
   <% end %>
 </div>
