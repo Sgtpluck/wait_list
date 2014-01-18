@@ -9,7 +9,7 @@ class AdiesController < ApplicationController
       redirect_to '/', notice: "Please sign in to view the Adies or create a problem."
     end
   end
-  
+
   def new
     @adie = Adie.new
   end
@@ -44,7 +44,10 @@ class AdiesController < ApplicationController
   private
 
   def adie_params
-    params.require(:adie).permit(:name, :password, :password_confirmation, :adatar)
+    params.require(:adie).permit(:name,
+                                 :password,
+                                 :password_confirmation,
+                                 :adatar)
   end
-  
+
 end
