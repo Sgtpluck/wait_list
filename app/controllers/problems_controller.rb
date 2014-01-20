@@ -30,6 +30,7 @@ class ProblemsController < ApplicationController
   end
 
   def show
+    @rating = Rating.new
   end
 
   def update
@@ -38,12 +39,7 @@ class ProblemsController < ApplicationController
     elsif @problem.helped == 'being helped'
       @problem.update(helped: 'helped')
     end
-<<<<<<< HEAD
     redirect_to problems_path
-=======
-
-    redirect_to '/problems'
->>>>>>> f4899bb70b7a6b2d2092a6b101a3787e20250e3e
   end
 
   def analysis

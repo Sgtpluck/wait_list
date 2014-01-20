@@ -1,0 +1,23 @@
+<% @adie = Adie.find(@problem.adie_id) %>
+
+
+<%= @adie.name %> had this problem:<br>
+
+Type of problem: <%= @problem.type %><br>
+Full Description: <%= @problem.description %>
+<br><br><br>
+
+<% if @problem.rating %>
+  <%= @problem.rating.helper %> helped with this problem<br>
+  Current Solution: <%= @problem.rating.solution %><br>
+  <% elsif session[:adie] == @adie.name %>
+<div id='rating_button'>
+  <span class='ui button mini'>
+    Rate Solution
+  </span>
+</class>
+
+<div class='hidden_form'>
+  <%= render 'ratings_form' %>
+</div>
+<% end %>

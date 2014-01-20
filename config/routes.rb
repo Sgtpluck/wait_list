@@ -15,6 +15,8 @@ HelpLine::Application.routes.draw do
   get '/help_me'        => 'problems#new'
   post '/help_me'       => 'problems#create', as: :new_problem
   get '/problems'       => 'problems#index', as: :problems
+  get '/problems/:id'   => 'problems#show', as: :problem
+  post '/problems/:id'  => 'ratings#create', as: :ratings
   post "/problems/:id"  => "problems#update", as: :helped
 
   get '/profile'        => 'adies#show', as: :profile

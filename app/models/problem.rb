@@ -3,6 +3,7 @@ class Problem < ActiveRecord::Base
   validates :estimate,    presence: true
   validates :description, presence: true
   validates :adie_id,     presence: true
+  has_one :rating
 
   belongs_to :adie
   self.inheritance_column = nil

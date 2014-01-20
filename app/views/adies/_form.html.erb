@@ -1,6 +1,8 @@
+<%= @adie.errors.inspect %>
+
 <h3>Create a new Adie</h3>
 <div>
-  <!-- #this will be for resetting your password -->
+
   <%= form_for @adie, url: add_adie_path do |f|%>
     <div class ="field">
       <%= f.label :name %>
