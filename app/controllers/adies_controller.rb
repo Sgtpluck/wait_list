@@ -1,6 +1,6 @@
 class AdiesController < ApplicationController
 
-  http_basic_authenticate_with name: "Sgt Pluck", password: "suchpassword", except: [:show, :update]
+  # http_basic_authenticate_with name: "Sgt Pluck", password: "suchpassword", except: [:show, :update]
 
   def index
     if session[:adie_id]
@@ -11,7 +11,12 @@ class AdiesController < ApplicationController
   end
 
   def new
-    @adie = Adie.new
+    @admin = Adie.find(session[:adie_id])
+    if @admin.admin == true
+      @adie = Adie.new
+    else
+      redirect_to problems_path
+    end
   end
 
   def create
@@ -19,7 +24,6 @@ class AdiesController < ApplicationController
     if @adie.save
       redirect_to 'problems'
     else
-      flash[:notice] = "This Adie could not be saved"
       render :new
     end
   end

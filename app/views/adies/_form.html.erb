@@ -1,4 +1,6 @@
-<%= @adie.errors.inspect %>
+<%= @adie.errors.full_messages.each do |message| %>
+  <% message %>
+<% end %>
 
 <h3>Create a new Adie</h3>
 <div>
