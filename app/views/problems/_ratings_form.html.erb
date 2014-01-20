@@ -2,13 +2,13 @@
   <%= f.label 'Who helped you?' %>
   <%= f.text_field :helper %>
   <br>
-  <%= f.label "How would you rate the solution at which you arrived?" %>
+  <%= f.label "How would you rate the solution at which you arrived? (IE, how good is the solution?)" %>
   <%= f.select(:rating, [1,2,3,4,5]) %> 
   <br>
   <%= f.label "Please describe the solution" %>
   <%= f.text_area :solution %>
   <br>
-  <%= f.label "Sooooo what's your satisfaction?" %>
+  <%= f.label "Sooooo what's your satisfaction? (IE, how satisfied are you with the actual help you were given)" %>
   <%= f.select(:satisfaction, [1,2,3,4,5]) %> 
 
   <%= f.hidden_field :problem_id, value: @problem.id %>
