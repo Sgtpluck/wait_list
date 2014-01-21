@@ -3,7 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 document.addEventListener( "DOMContentLoaded", function( e ) {
-  var rating = document.querySelector('#rating_button');
+  var rating = document.querySelector('#rating_button'),
       hidden = document.querySelector('.hidden_form');
   var style = hidden.style,
       rate_style = rating.style;

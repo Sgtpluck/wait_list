@@ -1,4 +1,7 @@
 class RatingsController < ApplicationController
+  def index
+    @problems = Problem.high_ratings
+  end
 
   def create
     @problem = Problem.find(params[:rating][:problem_id])

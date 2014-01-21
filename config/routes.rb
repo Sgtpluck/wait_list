@@ -16,11 +16,13 @@ HelpLine::Application.routes.draw do
   post '/help_me'       => 'problems#create', as: :new_problem
   get '/problems'       => 'problems#index', as: :problems
   get '/problems/:id'   => 'problems#show', as: :problem
-  post '/problems/:id'  => 'ratings#create', as: :ratings
+  post '/ratings/new'   => 'ratings#create', as: :ratings
   post "/problems/:id"  => "problems#update", as: :helped
 
   get '/profile'        => 'adies#show', as: :profile
   patch '/profile'      => 'adies#update', as: :reset_password
+
+  get '/ratings'        => 'ratings#index'
 
   
       

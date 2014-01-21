@@ -1,0 +1,8 @@
+<h3> Perhaps the solution to your problem lies here? </h3>
+<br>
+<% @problems.each do |problem| %>
+  <%= problem.type %><br>
+  <%= problem.description %> <br>
+
+  <%= problem.solution %><br>
+  <% end %>

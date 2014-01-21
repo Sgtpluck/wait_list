@@ -1,10 +1,10 @@
 <% @adie = Adie.find(@problem.adie_id) %>
 
 
-<%= @adie.name %> had this problem:<br>
+<%= @adie.name %>'s problem:<br>
 
-Type of problem: <%= @problem.type %><br>
-Full Description: <%= @problem.description %>
+<strong>Type of problem:</strong> <%= @problem.type %><br>
+<strong>Full Description: </strong><br><%= @problem.description %>
 <br><br><br>
 
 <% if @problem.rating %>
@@ -15,7 +15,7 @@ Full Description: <%= @problem.description %>
   <span class='ui button mini'>
     Rate Solution
   </span>
-</class>
+</div>
 
 <div class='hidden_form'>
   <%= render 'ratings_form' %>

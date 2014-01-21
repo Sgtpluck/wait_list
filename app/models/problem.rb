@@ -16,4 +16,8 @@ class Problem < ActiveRecord::Base
     room.speak problem
   end
 
+  def self.high_ratings
+    includes(:ratings).where(:"ratings.rating" => 5)
+  end
+
 end
