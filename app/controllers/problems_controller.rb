@@ -18,11 +18,11 @@ class ProblemsController < ApplicationController
     @problem[:adie_id] = session[:adie_id]
 
     if @problem.save
-      # Commented out for development purposes.
-      # Problem.report("#{Adie.find(@problem.adie_id).name} is having a " +
-      #                "problem with #{@problem.type}. The problem is " +
-      #                "#{@problem.description}. Estimated time to fix: " +
-      #                "#{@problem.estimate} -- http://helplist.herokuapp.com/problems")
+      Commented out for development purposes.
+      Problem.report("#{Adie.find(@problem.adie_id).name} is having a " +
+                     "problem with #{@problem.type}. The problem is " +
+                     "#{@problem.description}. Estimated time to fix: " +
+                     "#{@problem.estimate} -- http://helplist.herokuapp.com/problems")
       redirect_to '/problems'
     else
       render :new
