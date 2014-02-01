@@ -14,6 +14,8 @@ class Problem < ActiveRecord::Base
 
     room = campfire.find_room_by_name(room)
     room.speak problem
+    room.play 'trombone'
+    # (ノ°□°)ノ彡 ┻━┻
   end
 
   def self.high_ratings

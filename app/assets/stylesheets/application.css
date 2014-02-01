@@ -6,6 +6,11 @@
   display: inline-flex;
 }
 
+.logo {
+  margin-left: 30px;
+  position: absolute;
+}
+
 .container {
   width: 600px;
   margin: auto auto;
