@@ -15,16 +15,10 @@ class Problem < ActiveRecord::Base
     @room = campfire.find_room_by_name(room)
   end
 
-  def self.report(problem)
-    find_room
+  def self.report(problem, sound = 'trombone')
+    @room ||= find_room
     @room.speak problem
-    @room.play 'trombone'
-  end
-
-  def self.check_in(problem)
-    find_room
-    @room.speak problem
-    @room.play 'crickets'
+    @room.play sound
   end
 
   def self.high_ratings
@@ -34,12 +28,14 @@ class Problem < ActiveRecord::Base
   def self.reminder
     where(helped: 'needs help').each do |problem|
       if wait_time > 600 && wait_time < 1200
-        check_in("#{Adie.find(problem.adie_id).name} STILL needs help. Can " +
-                   "someone check it out, already? " +
-                   "-- http://helplist.herokuapp.com/problems")
+        report("#{Adie.find(problem.adie_id).name} STILL needs help. Can " +
+                 "someone check it out, already? " +
+                 "-- http://helplist.herokuapp.com/problems",
+               'crickets')
       elsif wait_time > 1200
-        check_in("Ahem. #{Adie.find(problem.adie_id).name} is STILL waiting. " +
-                   "Get ON this -- http://helplist.herokuapp.com/problems")
+        report("Ahem. #{Adie.find(problem.adie_id).name} is STILL waiting. " +
+                 "Get ON this -- http://helplist.herokuapp.com/problems",
+               'crickets')
       end
     end
   end
