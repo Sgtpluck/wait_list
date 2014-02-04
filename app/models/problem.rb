@@ -18,7 +18,7 @@ class Problem < ActiveRecord::Base
   def self.report(problem, sound = 'trombone')
     @room ||= find_room
     @room.speak problem
-    @room.play sound
+    @room.play sound unless sound.nil?
   end
 
   def self.high_ratings
