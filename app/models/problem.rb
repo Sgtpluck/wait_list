@@ -37,6 +37,7 @@ class Problem < ActiveRecord::Base
       if seconds > 600 && seconds < 1200
         check_in("#{Adie.find(problem.adie_id).name} STILL needs help. Can someone check it out, already? -- http://helplist.herokuapp.com/problems")
       elsif seconds > 1200
+        # (ノ°□°)ノ彡 ┻━┻
         check_in("Ahem. #{Adie.find(problem.adie_id).name} is STILL waiting. Get ON this -- http://helplist.herokuapp.com/problems")
       end
     end
