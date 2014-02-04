@@ -33,16 +33,18 @@ class Problem < ActiveRecord::Base
 
   def self.reminder
     where(helped: 'needs help').each do |problem|
-      seconds = (Time.now - problem.created_at)
-      if seconds > 600 && seconds < 1200
+      if wait_time > 600 && wait_time < 1200
         check_in("#{Adie.find(problem.adie_id).name} STILL needs help. Can " +
                    "someone check it out, already? " +
                    "-- http://helplist.herokuapp.com/problems")
-      elsif seconds > 1200
+      elsif wait_time > 1200
         check_in("Ahem. #{Adie.find(problem.adie_id).name} is STILL waiting. " +
                    "Get ON this -- http://helplist.herokuapp.com/problems")
       end
     end
   end
 
+  def wait_time
+    Time.now - created_at
+  end
 end
