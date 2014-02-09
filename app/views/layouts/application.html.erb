@@ -10,7 +10,7 @@
     <%= link_to image_tag('questionmark.png', height: 80, class: 'logo'), problems_path %>
     <div class='ui center aligned header'>
     <h1>Here, let me help you with that.</h1>
-        <% if session[:adie] %>
+        <% if current_adie %>
         <span class='head_links'>
           <%= button_to 'Sign out', sign_out_path, class: 'ui left attached mini button' %>
           <%= button_to 'Profile Page', profile_path, method: :get, class: 'ui right attached mini button' %>
