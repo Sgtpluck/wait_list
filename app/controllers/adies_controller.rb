@@ -47,7 +47,8 @@ class AdiesController < ApplicationController
     params.require(:adie).permit(:name,
                                  :password,
                                  :password_confirmation,
-                                 :adatar)
+                                 :adatar,
+                                 :ta)
   end
 
 end

@@ -1,8 +1,8 @@
 <meta http-equiv="refresh" content="60" />
-<h4> Hi <%= session[:adie]%>. <%= link_to "DON'T PANIC.", "http://edgecats.net/" %> </h4>
-
+<h4> Hi <%= current_adie.name %>. <%= link_to "DON'T PANIC.", "http://edgecats.net/" %> </h4>
+<% if current_adie.ta == false %>
   <%= link_to 'Create New Problem', help_me_path, class: 'circular ui positive button'%>
-
+<% end %>
 <div class="queue_chart">
   <h2>Current Help Line </h2>
   <table>

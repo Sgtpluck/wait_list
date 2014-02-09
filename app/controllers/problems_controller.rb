@@ -2,7 +2,7 @@ class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy, :report]
 
   def index
-    if session[:adie_id]
+    if current_adie
       @problems = Problem.where.not(helped: 'helped')
     else
       redirect_to '/'
@@ -14,15 +14,15 @@ class ProblemsController < ApplicationController
   end
 
   def create
-    @problem = Problem.new(problem_params)
-    @problem[:adie_id] = session[:adie_id]
+    @problem = current_adie.problems.create(problem_params)
 
-    if @problem.save
-      # Commented out for development purposes.
+    if @problem.save && Rails.env.development?
       Problem.report("#{Adie.find(@problem.adie_id).name} is having a " +
                      "problem with #{@problem.type}. The problem is " +
                      "#{@problem.description}. Estimated time to fix: " +
                      "#{@problem.estimate} -- http://helplist.herokuapp.com/problems")
+      redirect_to '/problems'
+    elsif @proble.save
       redirect_to '/problems'
     else
       render :new
