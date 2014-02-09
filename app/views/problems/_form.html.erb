@@ -1,5 +1,5 @@
 <div class= "greeting">
-  <h3>Hi <%= session[:adie]%>!</h3>
+  <h3>Hi <%= current_adie.name %>!</h3>
 </div>
 
 <% @problem.errors.full_messages.each do |error| %>

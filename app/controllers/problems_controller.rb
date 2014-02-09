@@ -5,24 +5,28 @@ class ProblemsController < ApplicationController
     if current_adie
       @problems = Problem.where.not(helped: 'helped')
     else
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 
   def new
-    @problem = Problem.new
+    if current_adie.ta?
+      redirect_to root_path
+    else 
+      @problem = Problem.new
+    end
   end
 
   def create
     @problem = current_adie.problems.create(problem_params)
 
-    if @problem.save && Rails.env.development?
+    if @problem.save && Rails.env.production?
       Problem.report("#{Adie.find(@problem.adie_id).name} is having a " +
                      "problem with #{@problem.type}. The problem is " +
                      "#{@problem.description}. Estimated time to fix: " +
                      "#{@problem.estimate} -- http://helplist.herokuapp.com/problems")
       redirect_to '/problems'
-    elsif @proble.save
+    elsif @problem.save
       redirect_to '/problems'
     else
       render :new
