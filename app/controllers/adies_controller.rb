@@ -4,7 +4,7 @@ class AdiesController < ApplicationController
     if session[:adie_id]
       @adies = Adie.all
     else
-      redirect_to '/', notice: "Please sign in to view the Adies or create a problem."
+      redirect_to root_path, notice: "Please sign in to view the Adies or create a problem."
     end
   end
 
@@ -20,7 +20,7 @@ class AdiesController < ApplicationController
   def create
     @adie = Adie.new(adie_params)
     if @adie.save
-      redirect_to 'problems'
+      redirect_to '/problems'
     else
       render :new
     end
