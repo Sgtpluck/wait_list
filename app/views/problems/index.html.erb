@@ -4,17 +4,6 @@
   <%= link_to 'Create New Problem', help_me_path, class: 'circular ui positive button'%>
 <% end %>
 
-<div class= 'tweet'>
-  <%= form_tag(tweet_path, :class =>"navbar-form", method: 'post', type: 'text') do %>
-    <div class="ui icon input">
-      <%= text_field_tag :tweet, "", placeholder: "Post to Twitter", size: "50", maxlength: "140" %>
-      <i class="twitter icon"></i>
-    </div>
-    <%= submit_tag("Tweet!", class: 'circular ui tiny twitter button') %>
-  <%end %>
-
-</div>
-
 <div class="queue_chart">
   <h2>Current Help Line </h2>
   <table>
@@ -26,6 +15,7 @@
         <th> Time Estimate </th>
         <th> Description </th>
         <th> Helped? </th>
+        <th> TwitterSource it! </th>
       </tr>
     </thead>
     <tbody> 
@@ -43,6 +33,14 @@
               <% elsif session[:adie_id] == problem.adie_id && problem.helped == 'being helped' %>
               <%= button_to "I've been helped!", helped_path(problem.id), class: "ui mini button" %>
             <% end %> 
+          </td>
+          <td>
+            <% if current_adie.provider %>
+              <%= form_tag(tweet_path, method: 'post') do %>
+                <%= hidden_field_tag :tweet, "#{problem.description} \##{problem.type}" %>
+                <%= submit_tag("Tweet!", class: 'circular ui tiny twitter button') %>
+              <% end %>
+            <% end %>
           </td>
         </tr>
       <% end %> 

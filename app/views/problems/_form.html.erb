@@ -22,3 +22,16 @@
 </div>
   <%= f.submit 'Help me plz!', class: 'ui button' %>
 <% end %>
+
+<% if current_adie.provider %>
+  
+  <div class= 'tweet'>
+    <%= form_tag(tweet_path, :class =>"navbar-form", method: 'post', type: 'text') do %>
+      <div class="ui icon input">
+        <%= text_field_tag :tweet, "", placeholder: "Post to Twitter", size: "50", maxlength: "140" %>
+        <i class="twitter icon"></i>
+      </div>
+      <%= submit_tag("Tweet!", class: 'circular ui tiny twitter button') %>
+    <% end %>
+  </div>
+<% end %>
