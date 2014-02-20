@@ -4,11 +4,15 @@
   <%= link_to 'Create New Problem', help_me_path, class: 'circular ui positive button'%>
 <% end %>
 
-<div>
+<div class= 'tweet'>
   <%= form_tag(tweet_path, :class =>"navbar-form", method: 'post', type: 'text') do %>
-    <%= text_field_tag :tweet, "", placeholder: "Post to Twitter", size: "20", maxlength: "140" %>
-    <%= submit_tag("Tweet!", class: "btn-block btn-info") %>
-    <%end %>
+    <div class="ui icon input">
+      <%= text_field_tag :tweet, "", placeholder: "Post to Twitter", size: "50", maxlength: "140" %>
+      <i class="twitter icon"></i>
+    </div>
+    <%= submit_tag("Tweet!", class: 'circular ui tiny twitter button') %>
+  <%end %>
+
 </div>
 
 <div class="queue_chart">
