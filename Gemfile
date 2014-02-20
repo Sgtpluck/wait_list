@@ -34,6 +34,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'figaro'
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
   gem 'sqlite3'
