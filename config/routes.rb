@@ -20,6 +20,7 @@ HelpLine::Application.routes.draw do
   get '/problems/:id'   => 'problems#show', as: :problem
   post '/ratings/new'   => 'ratings#create', as: :ratings
   post "/problems/:id"  => "problems#update", as: :helped
+  
 
   get '/profile'        => 'adies#show', as: :profile
   patch '/profile'      => 'adies#update', as: :reset_password
