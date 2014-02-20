@@ -10,6 +10,7 @@ gem 'figaro'
 gem 'tinder'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem "twitter", "~> 5.7.1"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

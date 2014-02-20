@@ -2,8 +2,14 @@
 <h4> Hi <%= current_adie.name %>. <%= link_to "DON'T PANIC.", "http://edgecats.net/" %> </h4>
 <% if current_adie.ta == false %>
   <%= link_to 'Create New Problem', help_me_path, class: 'circular ui positive button'%>
-  
 <% end %>
+
+<div>
+  <%= form_tag(tweet_path, :class =>"navbar-form", method: 'post', type: 'text') do %>
+    <%= text_field_tag :tweet, "", placeholder: "Post to Twitter", size: "20", maxlength: "140" %>
+    <%= submit_tag("Tweet!", class: "btn-block btn-info") %>
+    <%end %>
+</div>
 
 <div class="queue_chart">
   <h2>Current Help Line </h2>

@@ -51,7 +51,7 @@ class ProblemsController < ApplicationController
   end
 
   def tweet
-    @client.update(params[:tweet])
+    current_adie.provider.twitter_client.update(params[:tweet])
     redirect_to :back, notice: "Your tweet has been successfully posted!"
   end
 
@@ -67,15 +67,6 @@ private
                                     :description,
                                     :estimate,
                                     :helped)
-  end
-
-  def set_twitter_client
-    @client = Twitter::REST::Client.new do |config|
-      config.consumer_key = ENV["TWITTER_CLIENT_ID"]
-      config.consumer_secret = ENV["TWITTER_CLIENT_SECRET"]
-      config.access_token = current_adie.provider.token
-      config.access_token_secret = current_adie.provider.secret
-    end
   end
 
 end
