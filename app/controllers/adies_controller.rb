@@ -44,13 +44,17 @@ class AdiesController < ApplicationController
   def add_twitter
     @adie = current_adie
     auth_hash = request.env['omniauth.auth']
-    @provider = Provider.find_or_create_from_omniauth(auth_hash)
-    # if auth_hash[:uid]
-    #   @adie.update_from_omniauth(auth_hash)
-    # else
-    #   flash[:notice] = "There was a problem adding your Twitter account!"
-    #   redirect_to root_path
-    # end
+    @provider = Provider.find_by(uid: auth_hash[:uid])
+    if @provider 
+      redirect_to root_path, notice: "This account already exists!"
+    else
+      provider = Provider.create_from_omniauth(auth_hash)
+      if current_adie.provider = provider
+        redirect_to root_path, notice: "Account added!"
+      else
+        redirect_to root_path, notice: "there was a problem adding this account!"
+      end
+    end
   end
 
   private

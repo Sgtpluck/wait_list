@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220054455) do
+ActiveRecord::Schema.define(version: 20140220055835) do
 
   create_table "adies", force: true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140220054455) do
     t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "adie_id"
   end
 
   create_table "ratings", force: true do |t|

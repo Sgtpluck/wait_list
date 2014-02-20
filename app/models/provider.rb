@@ -1,8 +1,6 @@
 class Provider < ActiveRecord::Base
-
-  def self.find_or_create_from_omniauth(auth_hash)
-    Provider.find_by(uid: auth_hash[:uid]) || create_from_omniauth(auth_hash)
-  end
+  validates :uid, :token, :secret, presence: true
+  belongs_to :adie
 
   def self.create_from_omniauth(auth_hash)
     Provider.create!(
