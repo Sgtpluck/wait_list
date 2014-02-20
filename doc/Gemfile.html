@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>Gemfile - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./public/robots_txt.html">robots</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./HelpLine.html">HelpLine</a>
+  
+    <li><a href="./HelpLine/Application.html">HelpLine::Application</a>
+  
+    <li><a href="./AdatarUploader.html">AdatarUploader</a>
+  
+    <li><a href="./AddHelpedToProblems.html">AddHelpedToProblems</a>
+  
+    <li><a href="./AddPasswordDigest.html">AddPasswordDigest</a>
+  
+    <li><a href="./AddingAdatarsToAdies.html">AddingAdatarsToAdies</a>
+  
+    <li><a href="./Adie.html">Adie</a>
+  
+    <li><a href="./AdieHelper.html">AdieHelper</a>
+  
+    <li><a href="./AdiesController.html">AdiesController</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./CreateAdies.html">CreateAdies</a>
+  
+    <li><a href="./CreateProblems.html">CreateProblems</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./Problem.html">Problem</a>
+  
+    <li><a href="./ProblemHelper.html">ProblemHelper</a>
+  
+    <li><a href="./ProblemsController.html">ProblemsController</a>
+  
+    <li><a href="./WelcomeController.html">WelcomeController</a>
+  
+    <li><a href="./WelcomeHelper.html">WelcomeHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>source &#39;<a href="https://rubygems.org">rubygems.org</a>&#39;</p>
+
+<p># Bundle edge Rails instead: gem &#39;rails&#39;, github:
+&#39;rails/rails&#39; gem &#39;rails&#39;, &#39;4.0.2&#39;</p>
+
+<p># Use sqlite3 as the database for Active Record gem &#39;carrierwave&#39;
+gem &#39;fog&#39; gem &#39;unf&#39;</p>
+
+<p># Use SCSS for stylesheets gem &#39;sass-rails&#39;, &#39;~&gt; 4.0.0&#39;</p>
+
+<p># Use Uglifier as compressor for JavaScript assets gem &#39;uglifier&#39;,
+&#39;&gt;= 1.3.0&#39;</p>
+
+<p># Use CoffeeScript for .js.coffee assets and views gem
+&#39;coffee-rails&#39;, &#39;~&gt; 4.0.0&#39;</p>
+
+<p># See <a
+href="https://github.com/sstephenson/execjs#readme">github.com/sstephenson/execjs#readme</a>
+for more supported runtimes # gem &#39;therubyracer&#39;, platforms: :ruby</p>
+
+<p># Use jquery as the JavaScript library gem &#39;jquery-rails&#39;</p>
+
+<p># Turbolinks makes following links in your web application faster. Read
+more: <a
+href="https://github.com/rails/turbolinks">github.com/rails/turbolinks</a>
+gem &#39;turbolinks&#39;</p>
+
+<p># Build JSON APIs with ease. Read more: <a
+href="https://github.com/rails/jbuilder">github.com/rails/jbuilder</a> gem
+&#39;jbuilder&#39;, &#39;~&gt; 1.2&#39;</p>
+
+<p>group :doc do</p>
+
+<pre class="ruby"><span class="ruby-comment"># bundle exec rake doc:rails generates the API under doc/api.</span>
+<span class="ruby-identifier">gem</span> <span class="ruby-string">&#39;sdoc&#39;</span>, <span class="ruby-identifier">require</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+</pre>
+
+<p>end</p>
+
+<p>group :development, :test do</p>
+
+<pre>gem &#39;rspec-rails&#39;, &#39;~&gt; 2.14&#39;
+gem &#39;sqlite3&#39;</pre>
+
+<p>end</p>
+
+<p>group :production do</p>
+
+<pre>gem &#39;pg&#39;, &#39;0.15.1&#39;
+gem &#39;rails_12factor&#39;, &#39;0.0.2&#39;</pre>
+
+<p>end # Use ActiveModel has_secure_password gem &#39;bcrypt-ruby&#39;</p>
+
+<p># Handling time analysis</p>
+
+<pre>gem &#39;chronic_duration&#39;</pre>
+
+<p># Use unicorn as the app server # gem &#39;unicorn&#39;</p>
+
+<p># Use Capistrano for deployment # gem &#39;capistrano&#39;, group:
+:development</p>
+
+<p># Use debugger # gem &#39;debugger&#39;, group: [:development, :test]</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

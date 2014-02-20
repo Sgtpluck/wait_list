@@ -1,38 +1,53 @@
 class ProblemsController < ApplicationController
-  before_action :set_problem, only: [:show, :edit, :update, :destroy]
-  
+  before_action :set_problem, only: [:show, :edit, :update, :destroy, :report]
+
   def index
-    if session[:adie_id]
-      @problems = Problem.where(helped: false)
+    if current_adie
+      @problems = Problem.where.not(helped: 'helped')
     else
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 
   def new
-    @problem = Problem.new
+    if current_adie.ta?
+      redirect_to root_path
+    else 
+      @problem = Problem.new
+    end
   end
 
   def create
-    @problem = Problem.new(problem_params)
-    @problem[:adie_id] = session[:adie_id]
-    if @problem.save
-      redirect_to "/problems"
+    @problem = current_adie.problems.create(problem_params)
+
+    if @problem.save && Rails.env.production?
+      Problem.report("#{Adie.find(@problem.adie_id).name} is having a " +
+                     "problem with #{@problem.type}. The problem is " +
+                     "#{@problem.description}. Estimated time to fix: " +
+                     "#{@problem.estimate} -- http://helplist.herokuapp.com/problems")
+      redirect_to '/problems'
+    elsif @problem.save
+      redirect_to '/problems'
     else
       render :new
     end
   end
 
   def show
+    @rating = Rating.new
   end
 
   def update
-    @problem.update(helped: true)
-    redirect_to "/problems"
+    if @problem.helped == 'needs help'
+      @problem.update(helped: 'being helped')
+    elsif @problem.helped == 'being helped'
+      @problem.update(helped: 'helped')
+    end
+    redirect_to problems_path
   end
 
   def analysis
-    @problems = Problem.where(helped: true)
+    @problems = Problem.where(helped: 'helped')
   end
 
 private
@@ -42,7 +57,10 @@ private
   end
 
   def problem_params
-    params.require(:problem).permit(:adie_id,:type,:description,:estimate,:helped)
+    params.require(:problem).permit(:adie_id,
+                                    :type,
+                                    :description,
+                                    :estimate,
+                                    :helped)
   end
-
 end

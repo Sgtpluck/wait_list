@@ -2,26 +2,23 @@
 <html>
   <head>
     <title>HelpLine</title>
-     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-     <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag    "application", media: "all" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
   </head>
-
   <body>
-    <div class='header'>
-      <h1> Need Help?</h1>
-    </div>
-    <div class='container'>
-      <div class= 'navbar'>
-      <ul>
-      <%#= link_to 'See/Create a problem!', problems_path %>
-        <% if session[:adie] %>
-          <li><%= button_to 'Sign out', sign_out_path, class: 'nav' %></li>
-          <li><%= button_to 'Reset your password', profile_path, method: :get, class: 'nav'%></li>
-        <% else %>
-          <li><%= button_to 'Sign in', '/', method: :get, class: 'nav' %></li>
+    <%= link_to image_tag('questionmark.png', height: 80, class: 'logo'), problems_path %>
+    <div class='ui center aligned header'>
+    <h1>Here, let me help you with that.</h1>
+        <% if current_adie %>
+        <span class='head_links'>
+          <%= button_to 'Sign out', sign_out_path, class: 'ui left attached mini button' %>
+          <%= button_to 'Profile Page', profile_path, method: :get, class: 'ui right attached mini button' %>
+          </span>
         <% end %>
-      </ul>
-    </div>
+      </div>
+    <hr>
+    <div class="container">
       <%= flash.notice %>
       <%= yield %>
     </div>

@@ -7,6 +7,8 @@ gem 'rails', '4.0.2'
 gem 'carrierwave'
 gem 'fog'
 gem 'unf' 
+gem 'figaro'
+gem 'tinder'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -39,16 +41,24 @@ gem 'figaro'
 group :development, :test do
   gem 'rspec-rails', '~> 2.14'
   gem 'sqlite3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
 end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 
 # Handling time analysis
  gem 'chronic_duration'
+
+ # To make it prettier
+gem 'therubyracer', platforms: :ruby # or any other runtime
+gem 'less-rails'
+gem 'semantic-ui-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -1,14 +1,13 @@
-
-<h3>Are you an Adie?</h3>
-
-<div class="sign-in">
-  <%= form_tag "/sign-in" do%>
-    <%= label_tag :name %> 
-    <%= select_tag :name, options_for_select(Adie.all.collect{ |u| [u.name, u.id] }) %><br>
-    <%= label_tag :password %> 
-    <%= password_field_tag :password, params[:password] %><br>
-    <!-- might need password_confirmation here? -->
-    <%= submit_tag "Sign-in!" %>
-  <% end %>
+<div class='ui two column divided grid'>
+  <div class='row'>
+    <div class='column'>
+      <h3>Are you an Adie?</h3>
+        <%= render 'adies' %>
+    </div>
+  </div>
+    <div class='column'>
+      <h3> Are you a TA? </h3>
+      <%= render 'tas' %>
+    </div>
+  </div>
 </div>
-

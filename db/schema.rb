@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131215224059) do
+ActiveRecord::Schema.define(version: 20140207041330) do
 
   create_table "adies", force: true do |t|
     t.string   "name"
@@ -19,16 +19,28 @@ ActiveRecord::Schema.define(version: 20131215224059) do
     t.datetime "updated_at"
     t.string   "adatar"
     t.string   "password_digest"
+    t.boolean  "admin",           default: false
+    t.boolean  "ta",              default: false
   end
 
   create_table "problems", force: true do |t|
     t.string   "type"
     t.string   "description"
     t.string   "estimate"
-    t.integer  "adie_id",     limit: 255
+    t.integer  "adie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "helped",                  default: false
+    t.string   "helped",      default: "needs help"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.string   "helper"
+    t.integer  "rating"
+    t.text     "solution"
+    t.integer  "satisfaction"
+    t.integer  "problem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

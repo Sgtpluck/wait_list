@@ -1,29 +1,11 @@
 <%= session[:adie] %>
-<%= params.inspect %>
-<hr>
-
-<h3>Reset your password</h3>
-
-<h4><%= @adie.name %></h4>
-
-<!-- show the profile picture here -->
-<!-- maybe confirm password before allow to reset? -->
-
-<%= form_for @adie, url: reset_password_path do |f|%>
-
-  <%#= f.label :current_password, "Old password:" %>
-  <%#= f.password_field :current_password %>
-
-<div class ="field">
-  <%= f.label :password, "New password:" %>
-  <%= f.password_field :password %>
-</div>
-<div class ="field">
-  <%= f.label :password_confirmation, "Confirm your new password" %>
-  <%= f.password_field :password_confirmation %>
-</div>
-<div class ="field">
-  <%= f.submit %>
-</div>
-
-<% end %>
+<%= render 'reset' %>
+<br>
+Problems: <br><br>
+<% @adie.problems.where(helped: 'helped').each_with_index do |problem, n| %>
+  <%= n + 1 %>. <%= problem.description %>
+<!-- 
+  <#%= link_to problem.description, problem_path(problem.id) %> 
+  -->
+ <br>
+  <% end %>
