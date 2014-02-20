@@ -41,6 +41,18 @@ class AdiesController < ApplicationController
     end
   end
 
+  def add_twitter
+    @adie = current_adie
+    auth_hash = request.env['omniauth.auth']
+    @provider = Provider.find_or_create_from_omniauth(auth_hash)
+    # if auth_hash[:uid]
+    #   @adie.update_from_omniauth(auth_hash)
+    # else
+    #   flash[:notice] = "There was a problem adding your Twitter account!"
+    #   redirect_to root_path
+    # end
+  end
+
   private
 
   def adie_params

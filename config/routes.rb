@@ -6,6 +6,8 @@ HelpLine::Application.routes.draw do
   post "/sign_in"       => 'welcome#sign_in', as: :sign_in
   post "/sign_out"      => 'welcome#sign_out', as: :sign_out
 
+  get "/auth/:provider/callback", to: "adies#add_twitter"
+
   get "/sign_up"        => "adies#new", as: :sign_up
   post "/sign_up"       => "adies#create", as: :add_adie # make only admin accessible?
 

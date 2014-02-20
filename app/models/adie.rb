@@ -4,4 +4,7 @@ class Adie < ActiveRecord::Base
   has_many :problems #but a dude ain't one
   mount_uploader :adatar, AdatarUploader
 
+  def update_from_omniauth(auth_hash)
+  end
+  
 end

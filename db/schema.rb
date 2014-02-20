@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207041330) do
+ActiveRecord::Schema.define(version: 20140220054455) do
 
   create_table "adies", force: true do |t|
     t.string   "name"
@@ -27,10 +27,18 @@ ActiveRecord::Schema.define(version: 20140207041330) do
     t.string   "type"
     t.string   "description"
     t.string   "estimate"
-    t.integer  "adie_id"
+    t.integer  "adie_id",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "helped",      default: "needs help"
+    t.string   "helped",                  default: "needs help"
+  end
+
+  create_table "providers", force: true do |t|
+    t.string   "uid"
+    t.string   "secret"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ratings", force: true do |t|
