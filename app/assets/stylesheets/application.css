@@ -89,3 +89,7 @@ h3 {
 td .helped:hover {
   cursor: pointer;
 }
+
+.tweet {
+  padding: 10px;
+}

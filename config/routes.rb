@@ -3,24 +3,28 @@ HelpLine::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   get 'sign-in'         => 'welcome#home'
-  post "/sign_in"       => 'welcome#sign_in', as: :sign_in
-  post "/sign_out"      => 'welcome#sign_out', as: :sign_out
+  post "/sign_in"       => 'welcome#sign_in',    as: :sign_in
+  post "/sign_out"      => 'welcome#sign_out',   as: :sign_out
 
-  get "/sign_up"        => "adies#new", as: :sign_up
-  post "/sign_up"       => "adies#create", as: :add_adie # make only admin accessible?
+  get "/auth/:provider/callback", to: "adies#add_twitter"
+
+  get "/sign_up"        => "adies#new",          as: :sign_up
+  post "/sign_up"       => "adies#create",       as: :add_adie # make only admin accessible?
 
   get '/analysis'       => 'problems#analysis'
   get '/adies'          => 'adies#index'
 
   get '/help_me'        => 'problems#new'
-  post '/help_me'       => 'problems#create', as: :new_problem
-  get '/problems'       => 'problems#index', as: :problems
-  get '/problems/:id'   => 'problems#show', as: :problem
-  post '/ratings/new'   => 'ratings#create', as: :ratings
-  post "/problems/:id"  => "problems#update", as: :helped
+  post '/help_me'       => 'problems#create',    as: :new_problem
+  get '/problems'       => 'problems#index',     as: :problems
+  get '/problems/:id'   => 'problems#show',      as: :problem
+  post '/ratings/new'   => 'ratings#create',     as: :ratings
+  post "/problems/:id"  => "problems#update",    as: :helped
 
-  get '/profile'        => 'adies#show', as: :profile
-  patch '/profile'      => 'adies#update', as: :reset_password
+  post "/tweet"         => "problems#tweet",     as: :tweet
+
+  get '/profile'        => 'adies#show',         as: :profile
+  patch '/profile'      => 'adies#update',       as: :reset_password
 
   get '/ratings'        => 'ratings#index'
 

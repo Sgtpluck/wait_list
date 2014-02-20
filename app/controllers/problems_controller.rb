@@ -50,6 +50,11 @@ class ProblemsController < ApplicationController
     @problems = Problem.where(helped: 'helped')
   end
 
+  def tweet
+    current_adie.provider.twitter_client.update(params[:tweet])
+    redirect_to :back, notice: "Your tweet has been successfully posted!"
+  end
+
 private
 
   def set_problem
@@ -63,4 +68,5 @@ private
                                     :estimate,
                                     :helped)
   end
+
 end

@@ -1,4 +1,9 @@
 <%= session[:adie] %>
+
+<div>
+  <%= link_to "Add Twitter account!", '/auth/twitter', title: "Twitter", class: 'circular ui small twitter button' %>
+</div>
+
 <%= render 'reset' %>
 <br>
 Problems: <br><br>
@@ -7,5 +12,6 @@ Problems: <br><br>
 <!-- 
   <#%= link_to problem.description, problem_path(problem.id) %> 
   -->
- <br>
+<br>
   <% end %>
+<br>
