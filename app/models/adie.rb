@@ -5,7 +5,4 @@ class Adie < ActiveRecord::Base
   mount_uploader :adatar, AdatarUploader
   has_one :provider
 
-  def update_from_omniauth(auth_hash)
-  end
-
 end
