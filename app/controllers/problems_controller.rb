@@ -13,13 +13,12 @@ class ProblemsController < ApplicationController
   def create
     @problem = current_adie.problems.create(problem_params)
 
-    if @problem.save && Rails.env.production?
-      Problem.report(@problem)
-      redirect_to '/problems'
-    elsif @problem.save
+    if @problem.save
+      Problem.report(@problem) if Rails.env.production?
+      flash[:notice] = "We will be with you shortly!"
       render :json => {}
     else
-      render :new
+      render :json => { :message => @problem.errors.full_messages }, status: 400
     end
   end
 

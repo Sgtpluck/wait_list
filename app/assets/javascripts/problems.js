@@ -12,6 +12,10 @@ $(function() {
       type: 'POST',
       data: problem,
       error: function(xhr, status, message) {
+        var errors = xhr.responseJSON['message'];
+        $.each(errors, function(index, error){
+          $('.listErrors').append('<li>'+ error + '</li>');
+        });
       },
       success: function(data, status, xhr) {
         $('#newProblemModal').modal('hide');

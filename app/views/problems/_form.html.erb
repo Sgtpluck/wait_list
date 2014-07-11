@@ -1,7 +1,7 @@
-<% @problem.errors.full_messages.each do |error| %>
-  <%= error %><br>
-<% end %>
-
+<div class="errors">
+  <ul class='listErrors'>
+  </ul>
+</div>
 <div>
 <%= form_for @problem, url: new_problem_path do |f| %>
 <div class='field'>
