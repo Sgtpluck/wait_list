@@ -3,5 +3,5 @@
   <%= select_tag :name, options_for_select(Adie.where(ta: false).map { |u| [u.name, u.id] }) %><br>
   <%= label_tag :password %> 
   <%= password_field_tag :password, params[:password] %><br>
-  <%= submit_tag "Sign-in!" %>
+  <%= submit_tag "Sign-in!", class: "btn btn-success" %>
 <% end %>

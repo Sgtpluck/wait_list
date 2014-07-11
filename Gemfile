@@ -6,6 +6,7 @@ gem 'fog'
 gem 'unf' 
 gem 'figaro'
 gem 'tinder'
+gem 'pry'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -18,6 +19,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-rails', :group => :development
 end
 
 group :production do
@@ -34,7 +36,6 @@ gem 'bcrypt-ruby'
  # To make it prettier
 gem 'therubyracer', platforms: :ruby # or any other runtime
 gem 'less-rails'
-gem 'semantic-ui-rails'
 
 
 # Use Capistrano for deployment

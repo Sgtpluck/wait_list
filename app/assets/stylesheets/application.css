@@ -6,6 +6,10 @@
   display: inline-flex;
 }
 
+#fontFancy {
+  font-family: 'Special Elite', cursive;
+}
+
 .logo {
   margin-left: 30px;
   position: absolute;

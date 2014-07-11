@@ -2,19 +2,23 @@
 <html>
   <head>
     <title>HelpLine</title>
+      <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
       <%= stylesheet_link_tag    "application", media: "all" %>
       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>
   </head>
   <body>
     <%= link_to image_tag('questionmark.png', height: 80, class: 'logo'), problems_path %>
-    <div class='ui center aligned header'>
-    <h1>Here, let me help you with that.</h1>
+    <div class='text-center'>
+    <h1 id="fontFancy">Here, let me help you with that.</h1>
         <% if current_adie %>
         <span class='head_links'>
-          <%= button_to 'Sign out', sign_out_path, class: 'ui left attached mini button' %>
-          <%= button_to 'Profile Page', profile_path, method: :get, class: 'ui right attached mini button' %>
+          <%= button_to 'Sign out', sign_out_path, class: "btn btn-default" %>
+          <%= link_to 'Profile Page', profile_path, class: 'btn btn-default' %>
           </span>
+        <% else %>
+          <br>
+          <br>
         <% end %>
       </div>
     <hr>

@@ -1,24 +1,19 @@
-<div class= "greeting">
-  <h3>Hi <%= current_adie.name %>!</h3>
-</div>
-
 <% @problem.errors.full_messages.each do |error| %>
   <%= error %><br>
 <% end %>
 
-<div class='ui form'>
+<div>
 <%= form_for @problem, url: new_problem_path do |f| %>
-<div class="ui dropdown">
-  <%= f.label :type, "What type of problem are you having?" %><br>
+<div class='field'>
+  <%= f.label :type %><br>
   <%= f.select(:type, ['Rails','Ruby','CSS/HTML','JavaScript','Other'], class: 'item') %> <br><br>
 </div>
-<div class='field'
+<div class='field'>
   <%= f.label :description, "Tell me your woes:" %><br>
-  <%= f.text_field :description %><br><br>
+  <%= f.text_area :description, class: "form-control", rows: "5"%><br><br>
 </div>
 <div class='field'>
-  <%= f.label :estimate, "Estimated time to solve the problem: (BE HONEST.)" %><br>
+  <%= f.label :estimate, "Estimated time to solve the problem:" %><br>
   <%= f.select(:estimate, ['5 minutes','20 minutes','45 minutes','possibly hours','Not Sure','someone have mercy on my soul'])%> <br><br>
 </div>
-  <%= f.submit 'Help me plz!', class: 'ui button' %>
 <% end %>

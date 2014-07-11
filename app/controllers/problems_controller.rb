@@ -3,6 +3,7 @@ class ProblemsController < ApplicationController
 
   def index
     @problems = Problem.where.not(helped: 'helped')
+    @problem = Problem.new
   end
 
   def new
@@ -13,13 +14,10 @@ class ProblemsController < ApplicationController
     @problem = current_adie.problems.create(problem_params)
 
     if @problem.save && Rails.env.production?
-      Problem.report("#{Adie.find(@problem.adie_id).name} is having a " +
-                     "problem with #{@problem.type}. The problem is " +
-                     "#{@problem.description}. Estimated time to fix: " +
-                     "#{@problem.estimate} -- http://helplist.herokuapp.com/problems")
+      Problem.report(@problem)
       redirect_to '/problems'
     elsif @problem.save
-      redirect_to '/problems'
+      render :json => {}
     else
       render :new
     end
