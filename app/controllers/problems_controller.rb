@@ -2,19 +2,11 @@ class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy, :report]
 
   def index
-    if current_adie
-      @problems = Problem.where.not(helped: 'helped')
-    else
-      redirect_to root_path
-    end
+    @problems = Problem.where.not(helped: 'helped')
   end
 
   def new
-    if current_adie.ta?
-      redirect_to root_path
-    else 
-      @problem = Problem.new
-    end
+    @problem = Problem.new
   end
 
   def create

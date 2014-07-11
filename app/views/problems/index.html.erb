@@ -5,7 +5,7 @@
 <% end %>
 <div class="queue_chart">
   <h2>Current Help Line </h2>
-  <table>
+  <table id="projects">
     <thead>
       <tr>
         <th> # in line </th>
@@ -20,16 +20,16 @@
       <% @problems.sort_by {|problem| problem.created_at}.each_with_index do |problem, n| %>
         <tr>
           <td><%= n + 1 %></td>
-          <td><%= image_tag(Adie.find(problem.adie_id).adatar_url, :width => 50) %>
+          <td class="persons"><%= image_tag(Adie.find(problem.adie_id).adatar_url, :width => 50, class: 'person') %>
           <%= Adie.find(problem.adie_id).name %></td>
           <td><%= problem.type %></td>
           <td><%= problem.estimate %></td>
           <td><%= problem.description %></td>
           <td>
             <% if session[:adie_id] == problem.adie_id && problem.helped == 'needs help' %>
-              <%= button_to "I'm being helped!", helped_path(problem.id), class: "ui mini button" %>
+              <%= button_to "I'm being helped!", helped_path(problem.id), class: "ui mini button", id: 'help-button' %>
               <% elsif session[:adie_id] == problem.adie_id && problem.helped == 'being helped' %>
-              <%= button_to "I've been helped!", helped_path(problem.id), class: "ui mini button" %>
+              <%= button_to "I've been helped!", helped_path(problem.id), class: "ui mini button", id: 'help-button' %>
             <% end %> 
           </td>
         </tr>
