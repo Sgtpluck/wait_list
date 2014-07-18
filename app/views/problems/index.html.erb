@@ -1,10 +1,12 @@
 <!-- <meta http-equiv="refresh" content="60" /> -->
-<h4 id="fontFancy"> Hi <%= current_adie.name %>. <%= link_to "DON'T PANIC.", "http://edgecats.net/" %> </h4>
-<% unless current_adie.ta %>
-  <div class="btn btn-success" id='newProblem'>Create New Problem</div>
-<% end %>
+<div class='center'>
+  <h4 id="fontFancy"> Hi <%= current_adie.name %>. <%= link_to "DON'T PANIC.", "http://edgecats.net/" %> </h4>
+  <% unless current_adie.ta %>
+    <div class="btn btn-success" id='newProblem'>Create New Problem</div>
+  <% end %>
+</div>
 <div class="queue_chart">
-  <h2 id="fontFancy">Current Help Line </h2>
+  <h2 id="fontFancy" class="center">Current Help Line </h2>
   <table id="projects" class="table">
     <thead>
       <tr>

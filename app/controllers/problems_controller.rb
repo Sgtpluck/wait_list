@@ -4,6 +4,7 @@ class ProblemsController < ApplicationController
   def index
     @problems = Problem.where.not(helped: 'helped')
     @problem = Problem.new
+    @adie = current_adie
   end
 
   def new
