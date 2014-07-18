@@ -1,5 +1,7 @@
-<h3>Reset your password</h3>
-
+<div class="errors">
+  <ul class='listErrors'>
+  </ul>
+</div>
 <%= form_for @adie, url: reset_password_path do |f|%>
   <div class='field'>
     <%= f.label :password, "New password:", class: 'newPass' %>

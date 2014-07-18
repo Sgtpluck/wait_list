@@ -32,11 +32,12 @@ class AdiesController < ApplicationController
 
   def update
     @adie = current_adie
+    @adie.update(adie_params)
     if @adie.save
       flash[:notice] = "Thanks for updating your info!"
-      render :json => {}
+      render :json => {password: @adie.password}
     else
-      render :json => { :message => @problem.errors.full_messages }, status: 400
+      render :json => { :message => @adie.errors.full_messages }, status: 400
     end
   end
 

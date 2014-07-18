@@ -19,7 +19,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-rails', :group => :development
+  gem 'pry-rails'
 end
 
 group :production do

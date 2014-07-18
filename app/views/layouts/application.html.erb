@@ -9,7 +9,7 @@
   </head>
   <body>
     <%= link_to image_tag('questionmark.png', height: 80, class: 'logo'), problems_path %>
-    <div class='text-center'>
+    <div class='center'>
     <h1 id="fontFancy">Here, let me help you with that.</h1>
         <% if current_adie %>
         <span class='head_links'>
@@ -23,7 +23,9 @@
       </div>
     <hr>
     <div class="container">
-      <%= flash.notice %>
+      <div class='center'>
+        <%= flash.notice %>
+      </div>
       <%= yield %>
     </div>
 

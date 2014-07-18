@@ -16,7 +16,7 @@ class WelcomeController < ApplicationController
       redirect_to "/problems", notice: "You are now signed in!"
     else
       flash[:notice] = "Invalid password :("
-      render :home
+      redirect_to '/'
     end
   end
 
