@@ -1,7 +1,13 @@
 <%= form_tag sign_in_path do %>
-  <%= label_tag :name %> 
+<div class='sign-field'>
+  <%= label_tag :name, nil, class: 'sign' %> 
   <%= select_tag :name, options_for_select(Adie.where(ta: false).map { |u| [u.name, u.id] }) %><br>
-  <%= label_tag :password %> 
+</div>
+<div class='sign-field'>
+  <%= label_tag :password, nil, class: 'pass' %> 
   <%= password_field_tag :password, params[:password] %><br>
-  <%= submit_tag "Sign-in!" %>
+</div>
+<div class='sign-field'>
+  <%= submit_tag "Sign-in!", class: "btn btn-success" %>
+</div>
 <% end %>

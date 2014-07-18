@@ -1,11 +1,2 @@
-<%= session[:adie] %>
+
 <%= render 'reset' %>
-<br>
-Problems: <br><br>
-<% @adie.problems.where(helped: 'helped').each_with_index do |problem, n| %>
-  <%= n + 1 %>. <%= problem.description %>
-<!-- 
-  <#%= link_to problem.description, problem_path(problem.id) %> 
-  -->
- <br>
-  <% end %>
