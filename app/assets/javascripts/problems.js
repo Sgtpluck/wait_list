@@ -1,5 +1,6 @@
 $(function() {
   $("#newProblem").click(function(){
+    $('.flash_notice').empty();
     $('#newProblemModal').modal('show');
   });
 
