@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  skip_filter :redirect_if_not_signed_in
+
   def home
     if current_adie
       redirect_to problems_path
@@ -14,7 +16,7 @@ class WelcomeController < ApplicationController
       redirect_to "/problems", notice: "You are now signed in!"
     else
       flash[:notice] = "Invalid password :("
-      render :home
+      redirect_to '/'
     end
   end
 

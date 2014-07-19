@@ -17,7 +17,10 @@ class Problem < ActiveRecord::Base
 
   def self.report(problem, sound = 'trombone')
     @room ||= find_room
-    @room.speak problem
+    @room.speak "#{Adie.find(problem.adie_id).name} is having a " +
+                     "problem with #{problem.type}. The problem is " +
+                     "#{problem.description}. Estimated time to fix: " +
+                     "#{problem.estimate} -- http://helplist.herokuapp.com/problems"
     @room.play sound unless sound.nil?
   end
 

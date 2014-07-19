@@ -2,34 +2,24 @@ class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy, :report]
 
   def index
-    if current_adie
-      @problems = Problem.where.not(helped: 'helped')
-    else
-      redirect_to root_path
-    end
+    @problems = Problem.where.not(helped: 'helped')
+    @problem = Problem.new
+    @adie = current_adie
   end
 
   def new
-    if current_adie.ta?
-      redirect_to root_path
-    else 
-      @problem = Problem.new
-    end
+    @problem = Problem.new
   end
 
   def create
     @problem = current_adie.problems.create(problem_params)
 
-    if @problem.save && Rails.env.production?
-      Problem.report("#{Adie.find(@problem.adie_id).name} is having a " +
-                     "problem with #{@problem.type}. The problem is " +
-                     "#{@problem.description}. Estimated time to fix: " +
-                     "#{@problem.estimate} -- http://helplist.herokuapp.com/problems")
-      redirect_to '/problems'
-    elsif @problem.save
-      redirect_to '/problems'
+    if @problem.save
+      Problem.report(@problem) if Rails.env.production?
+      flash[:notice] = "We will be with you shortly!"
+      render :json => {}
     else
-      render :new
+      render :json => { :message => @problem.errors.full_messages }, status: 400
     end
   end
 
