@@ -2,7 +2,11 @@
   <ul class='listErrors'>
   </ul>
 </div>
-<%= form_for @adie, url: reset_password_path do |f|%>
+<%= form_for @adie, url: set_profile_path do |f|%>
+  <div class='field'>
+    <%= f.label :email, class: 'email' %>
+    <%= f.text_field :email, class: 'email_input' %>
+  </div>
   <div class='field'>
     <%= f.label :password, "New password:", class: 'newPass' %>
     <%= f.password_field :password %>

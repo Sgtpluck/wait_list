@@ -9,3 +9,22 @@
       <%= render 'tas' %>
     </div>
   </div>
+  <div class='btn btn-link' id='forgot'>Forgot Your Password?</div>
+
+  <div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="fontFancy">Let's get you a new password!</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'adies/password_request' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="createPassword">send</button>
+      </div>
+    </div>
+  </div>
+</div>
