@@ -25,3 +25,24 @@ $(function() {
     });
   });
 });
+
+$(function() {
+  $("#dismiss").click(function(){
+    $('.listErrors').empty();
+    $('.inputField').val("");
+  });
+});
+
+$(function() {
+  $("#getHelp").click(function(){
+    $('.listErrors').empty();
+    $('.inputField').val("");
+  });
+});
+
+$(function() {
+  $("#createPassword").click(function(){
+    $('.listErrors').empty();
+    $('.inputField').val("");
+  });
+});
