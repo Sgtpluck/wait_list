@@ -1,3 +1,129 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.head_links {
+  display: inline-flex;
+}
+
+#fontFancy {
+  font-family: 'Special Elite', cursive;
+}
+
+.logo {
+  margin-left: 30px;
+  position: absolute;
+}
+
+.container {
+  width: 100%;
+  margin: auto auto;
+}
+
+.sign-in {
+  width: 600px;
+  margin: 50px auto;
+}
+
+.navbar ul{
+  /*border: 1px solid black;*/
+  width: 500px;
+  margin: 50px auto;
+  list-style-type: none;
+}
+
+.navbar .button_to {
+  display: block;
+  text-align: right;
+}
+
+.navbar .nav:hover {
+  cursor: pointer;
+}
+
+body {
+  font-family: "Lucida sans unicode"; 
+}
+
+table {
+  border: 2px solid black;
+  border-spacing: 0;
+}
+
+td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+th {
+  border: 1px solid black;
+  border-bottom: 3px solid black;
+  padding: 10px;
+  background-color: #D8F6CE;
+}
+
+h2 {
+  /*font-family: "Lucida sans unicode";*/
+  color: white;
+  padding: 5px; 
+  font-size: 20px;
+  background: linear-gradient(to right, #0B3B17, transparent);
+}
+
+h3 {
+  position: relative;
+  font-size: 25px;  
+  font-variant: small-caps;
+}
+
+.problem { 
+  font-size: 190%;
+}
+.problem:hover {
+  cursor: pointer;
+}
+
+.button_to {
+  text-align: left;
+}
+
+td .helped:hover {
+  cursor: pointer;
+}
+
+div.col-md-6 {
+  padding-left: 150px;
+}
+
+.sign {
+  padding-right: 40px;
+}
+
+.pass {
+  margin-right: 10px;
+}
+.sign-field {
+  margin-top: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+.newPass {
+  margin-right: 106px;
+}
+
+.email {
+  margin-right: 179px;
+}
+
+.email_input {
+  width: 250px;
+}
+
+.confirm {
+  margin-top: 5px;
+  margin-right: 5px;
+}

@@ -1,33 +1,36 @@
+require 'resque/server'
 HelpLine::Application.routes.draw do
+  mount Resque::Server, :at => "/resque"
   root 'welcome#home'
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-  get 'sign-in'         => 'welcome#home'
-  post "/sign_in"       => 'welcome#sign_in', as: :sign_in
-  post "/sign_out"      => 'welcome#sign_out', as: :sign_out
+  # See how all your routes lay out with 'rake routes".
+  get 'sign-in',        to: 'welcome#home'
+  post '/sign_in',      to: 'welcome#sign_in', as: :sign_in
+  post '/sign_out',     to: 'welcome#sign_out', as: :sign_out
 
-  get "/sign_up"        => "adies#new", as: :sign_up
-  post "/sign_up"       => "adies#create", as: :add_adie # make only admin accessible?
+  get '/sign_up',       to: 'adies#new', as: :sign_up
+  post '/sign_up',      to: 'adies#create', as: :add_adie # make only admin accessible?
 
-  get '/analysis'       => 'problems#analysis'
-  get '/adies'          => 'adies#index'
+  get '/analysis',      to: 'problems#analysis'
+  get '/adies',         to: 'adies#index'
 
-  get '/help_me'        => 'problems#new'
-  post '/help_me'       => 'problems#create', as: :new_problem
-  get '/problems'       => 'problems#index', as: :problems
-  get '/problems/:id'   => 'problems#show', as: :problem
-  post '/ratings/new'   => 'ratings#create', as: :ratings
-  post "/problems/:id"  => "problems#update", as: :helped
+  get '/help_me',       to:  'problems#new'
+  post '/help_me',      to:  'problems#create', as: :new_problem
+  get '/problems',      to:  'problems#index', as: :problems
+  get '/problems/:id',  to: 'problems#show', as: :problem
+  post '/ratings/new',  to: 'ratings#create', as: :ratings
+  post '/problems/:id', to: 'problems#update', as: :helped
 
-  get '/profile'        => 'adies#show', as: :profile
-  patch '/profile'      => 'adies#update', as: :reset_password
+  get '/profile',       to: 'adies#show', as: :profile
+  patch '/profile',     to:'adies#update', as: :set_profile
+  patch '/reset',       to: 'adies#new_password', as: :forgot_password
 
   
       
 
   # resources :problems
 
-  # You can have the root of your site routed with "root"
+  # You can have the root of your site routed with 'root'
   # root 'welcome#index'
 
   # Example of regular route:

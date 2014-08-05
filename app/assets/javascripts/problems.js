@@ -1,5 +1,6 @@
 $(function() {
   $("#newProblem").click(function(){
+    $('.flash_notice').empty();
     $('#newProblemModal').modal('show');
   });
 
@@ -22,5 +23,26 @@ $(function() {
         document.location.href = '/problems';
       }
     });
+  });
+});
+
+$(function() {
+  $("#dismiss").click(function(){
+    $('.listErrors').empty();
+    $('.inputField').val("");
+  });
+});
+
+$(function() {
+  $("#getHelp").click(function(){
+    $('.listErrors').empty();
+    $('.inputField').val("");
+  });
+});
+
+$(function() {
+  $("#createPassword").click(function(){
+    $('.listErrors').empty();
+    $('.inputField').val("");
   });
 });

@@ -8,6 +8,11 @@ gem 'figaro'
 gem 'tinder'
 gem 'pry'
 
+# background job
+gem 'resque', '~> 1.23.0'
+# autoscaling
+gem 'heroku_resque_autoscaler'
+
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 
@@ -20,6 +25,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
 group :production do
@@ -36,7 +42,3 @@ gem 'bcrypt-ruby'
  # To make it prettier
 gem 'therubyracer', platforms: :ruby # or any other runtime
 gem 'less-rails'
-
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development

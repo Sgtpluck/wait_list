@@ -1,5 +1,6 @@
 $(function() {
   $("#profilePage").click(function(){
+    $('.flash_notice').empty();
     $('#profileModal').modal('show');
   });
 

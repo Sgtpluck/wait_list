@@ -4,3 +4,5 @@
 require File.expand_path('../config/application', __FILE__)
 
 HelpLine::Application.load_tasks
+require "resque/tasks"
+task "resque:setup" => :environment
