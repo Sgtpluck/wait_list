@@ -1,12 +1,25 @@
-<table id="projects"> 
-  <% @problems.sort_by {|problem| problem.created_at}.each_with_index do |problem, n| %>
-    <tr>
-      <td><%= n + 1 %></td>
-      <td><%= problem.adie.name %></td>
-      <td><%= problem.type %></td>
-      <td><%= problem.estimate %></td>
-      <td><%= problem.description %></td>
-      <td><%= problem.helped %></td>
-    </tr>
-  <% end %>
-</table> 
+ <table id="projects" class="table">
+    <thead>
+      <tr>
+        <th> # in line </th>
+        <th> Adie, holla! </th>
+        <th> Type of problem </th>
+        <th> Time Estimate </th>
+        <th> Description </th>
+        <th> Helped? </th>
+      </tr>
+    </thead>
+    <tbody> 
+      <% @problems.sort_by {|problem| problem.created_at}.each_with_index do |problem, n| %>
+        <tr>
+          <td><%= n + 1 %></td>
+          <td><%= image_tag(problem.adie.adatar_url, :width => 50, class: 'person') %>
+          <%= problem.adie.name %></td>
+          <td><%= problem.type %></td>
+          <td><%= problem.estimate %></td>
+          <td><%= problem.description %></td>
+          <td><%= problem.helped %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
