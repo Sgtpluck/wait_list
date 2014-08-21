@@ -2,8 +2,7 @@
   <% @problems.sort_by {|problem| problem.created_at}.each_with_index do |problem, n| %>
     <tr>
       <td><%= n + 1 %></td>
-      <td><%= image_tag(problem.adie.adatar_url, :width => 50, class: 'person') %>
-          <%= problem.adie.name %></td>
+      <td><%= problem.adie.name %></td>
       <td><%= problem.type %></td>
       <td><%= problem.estimate %></td>
       <td><%= problem.description %></td>
