@@ -14,16 +14,18 @@ HelpLine::Application.routes.draw do
   get '/analysis',      to: 'problems#analysis'
   get '/adies',         to: 'adies#index'
 
-  get '/help_me',       to:  'problems#new'
-  post '/help_me',      to:  'problems#create', as: :new_problem
-  get '/problems',      to:  'problems#index', as: :problems
+  get '/help_me',       to: 'problems#new'
+  post '/help_me',      to: 'problems#create', as: :new_problem
+  get '/problems',      to: 'problems#index', as: :problems
   get '/problems/:id',  to: 'problems#show', as: :problem
   post '/ratings/new',  to: 'ratings#create', as: :ratings
   post '/problems/:id', to: 'problems#update', as: :helped
 
   get '/profile',       to: 'adies#show', as: :profile
-  patch '/profile',     to:'adies#update', as: :set_profile
+  patch '/profile',     to: 'adies#update', as: :set_profile
   patch '/reset',       to: 'adies#new_password', as: :forgot_password
 
   get '/status',        to: 'status#index'
+
+  post '/csv',          to: 'adies#bulk_upload'
 end
