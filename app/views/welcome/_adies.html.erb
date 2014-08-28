@@ -1,7 +1,7 @@
 <%= form_tag sign_in_path do %>
 <div class='sign-field'>
   <%= label_tag :name, nil, class: 'sign' %> 
-  <%= select_tag :name, options_for_select(Adie.where(ta: false).map { |u| [u.name, u.id] }) %><br>
+  <%= select_tag :name, options_for_select(Adie.where(ta: false).sort.map { |u| [u.name, u.id] }) %><br>
 </div>
 <div class='sign-field'>
   <%= label_tag :password, nil, class: 'pass' %> 
