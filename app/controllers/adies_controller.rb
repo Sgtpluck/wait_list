@@ -51,6 +51,7 @@ class AdiesController < ApplicationController
 
   def bulk_upload
     Adie.bulk_upload(params['adies'])
+    redirect_to problems_path
   end
 
   private

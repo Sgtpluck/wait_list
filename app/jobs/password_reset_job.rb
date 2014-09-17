@@ -1,8 +1,8 @@
-class EmailJob
+class PasswordResetJob
   extend HerokuResqueAutoscaler if Rails.env.production?
 
   @queue = :email
   def self.perform(adie,password)
-    PasswordReset.reset(adie, password).deliver
+    Emails.password_reset(adie, password).deliver
   end
 end

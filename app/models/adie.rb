@@ -8,21 +8,23 @@ class Adie < ActiveRecord::Base
   def create_random_password
     password = SecureRandom.hex[0..9]
     self.update(password: password, password_confirmation: password)
-    Resque.enqueue(EmailJob, self, password) if self.save
+    Resque.enqueue(PasswordResetJob, self, password) if self.save
   end
 
   def self.bulk_upload(csv_file)
     CSV.foreach(csv_file.path, headers: true) do |row|
       password = SecureRandom.hex[0..9]
       puts password
-      Adie.create(
+      adie = Adie.create(
         name: row[0],
         email: row[1],
         password: password,
+        password_confirmation: password,
         ta: row[2],
         admin: row[3],
         current: row[4]
         )
+      Resque.enqueue(NewAdieJob, adie, password) if adie.save
     end
   end
 
