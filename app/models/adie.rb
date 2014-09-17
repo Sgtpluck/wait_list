@@ -23,7 +23,6 @@ class Adie < ActiveRecord::Base
         admin: row[3],
         current: row[4]
         )
-      binding.pry
     end
   end
 
