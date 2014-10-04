@@ -1,12 +1,9 @@
 class AdiesController < ApplicationController
   skip_filter :redirect_if_not_signed_in, only: [:new_password]
+  require 'csv'
 
   def index
-    if session[:adie_id]
-      @adies = Adie.where(current: true)
-    else
-      redirect_to root_path, notice: "Please sign in to view the Adies or create a problem."
-    end
+    @adies = Adie.where(current: true)
   end
 
   def new
@@ -52,6 +49,11 @@ class AdiesController < ApplicationController
     end
   end
 
+  def bulk_upload
+    Adie.bulk_upload(params['adies'])
+    redirect_to problems_path
+  end
+
   private
 
   def adie_params
@@ -60,7 +62,8 @@ class AdiesController < ApplicationController
                                  :password_confirmation,
                                  :adatar,
                                  :ta,
-                                 :email)
+                                 :email,
+                                 :current)
   end
 
 end

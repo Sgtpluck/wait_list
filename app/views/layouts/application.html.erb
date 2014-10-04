@@ -6,6 +6,7 @@
       <%= stylesheet_link_tag    "application", media: "all" %>
       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>
+      <meta name="viewport" content="width=device-width, user-scalable=no">
   </head>
   <body>
     <%= link_to image_tag('questionmark.png', height: 80, class: 'logo'), problems_path %>
@@ -15,6 +16,9 @@
         <span class='head_links'>
           <%= button_to 'Sign out', sign_out_path, class: "btn btn-default" %>
           <%= link_to 'Profile', profile_path, class: 'btn btn-default', id: 'profilePage', remote: true %>
+          <% if current_adie.admin? %>
+             <%= link_to 'Create An Adie', sign_up_path, class: 'btn btn-default', id: 'profilePage' %>
+          <% end %>
           </span>
         <% else %>
           <br>
