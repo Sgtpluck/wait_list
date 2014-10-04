@@ -1,7 +1,7 @@
 $(function() {
   $("#profilePage").click(function(){
     $('.flash_notice').empty();
-     $('#profileModal .alerts').empty;
+    $('.alerts').hide();
     $('#profileModal').modal('show');
   });
 
