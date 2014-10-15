@@ -13,7 +13,7 @@
       <% @problems.sort_by {|problem| problem.created_at}.each_with_index do |problem, n| %>
         <tr>
           <td style='width: 5%'><%= n + 1 %></td>
-          <td style='width: 5%'><%= image_tag(problem.adie.adatar_url, :width => 50, class: 'person') %>
+          <td style='width: 5%'><%= class: 'person') %>
           <%= problem.adie.name %></td>
           <td style='width: 10%'><%= problem.type %></td>
           <td style='width: 10%'><%= problem.estimate %></td>
